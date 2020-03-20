@@ -1,5 +1,6 @@
 import useAxios from "axios-hooks";
 import { BASE_URL } from "./BaseUrl";
+import { formatNum } from "../utils/formatNum";
 
 export default () => {
   const [{ data, loading, error }, refetch] = useAxios(`${BASE_URL}/all`);
@@ -20,7 +21,7 @@ export default () => {
               <div className="flex-1 text-center">
                 <h5 className="text-white text-3xl font-bold">Total Kasus</h5>
                 <h3 className="text-white text-4xl">
-                  {cases}
+                  {formatNum(cases)}
                   <span className="text-green-400">
                     <i className="fas fa-caret-down" />
                   </span>
@@ -37,10 +38,10 @@ export default () => {
               </div>
               <div className="flex-1 text-center">
                 <h5 className="text-white text-3xl font-bold">
-                  Total Kematian
+                  Total Meninggal
                 </h5>
                 <h3 className="text-white text-4xl">
-                  {deaths}
+                  {formatNum(deaths)}
                   <span className="text-blue-400">
                     <i className="fas fa-caret-up" />
                   </span>
@@ -58,7 +59,7 @@ export default () => {
               <div className="flex-1 text-center">
                 <h5 className="text-white text-3xl font-bold">Total Pulih</h5>
                 <h3 className="text-white text-4xl">
-                  {recovered}
+                  {formatNum(recovered)}
                   <span className="text-orange-400">
                     <i className="fas fa-caret-up"></i>
                   </span>

@@ -33,7 +33,7 @@ function Indonesia() {
     <>
       <div className="flex flex-wrap mb-2">
         <div className="w-full md:w-1/2 xl:w-1/3 pt-3 px-3 md:pr-2">
-          <div className="bg-red-600 border rounded shadow p-2">
+          <div className="bg-orange-700 border rounded shadow p-2">
             <div className="flex flex-row items-center">
               <div className="flex-shrink pl-1 pr-4">
                 <i className="fa fa-wallet fa-2x fa-fw fa-inverse" />
@@ -51,7 +51,7 @@ function Indonesia() {
           </div>
         </div>
         <div className="w-full md:w-1/2 xl:w-1/3 pt-3 px-3 md:pl-2">
-          <div className="bg-black-600 border rounded shadow p-2">
+          <div className="bg-gray-900 border rounded shadow p-2">
             <div className="flex flex-row items-center">
               <div className="flex-shrink pl-1 pr-4">
                 <i className="fas fa-users fa-2x fa-fw fa-inverse" />
@@ -69,7 +69,7 @@ function Indonesia() {
           </div>
         </div>
         <div className="w-full md:w-1/2 xl:w-1/3 pt-3 px-3 md:pr-2 xl:pr-3 xl:pl-1">
-          <div className="bg-green-600 border rounded shadow p-2">
+          <div className="bg-gray-900 border rounded shadow p-2">
             <div className="flex flex-row items-center">
               <div className="flex-shrink pl-1 pr-4">
                 <i className="fas fa-user-plus fa-2x fa-fw fa-inverse"></i>
@@ -87,7 +87,7 @@ function Indonesia() {
           </div>
         </div>
         <div className="w-full md:w-1/2 xl:w-1/3 pt-3 px-3 md:pr-2 xl:pr-3 xl:pl-1">
-          <div className="bg-orange-600 border rounded shadow p-2">
+          <div className="bg-gray-900 border rounded shadow p-2">
             <div className="flex flex-row items-center">
               <div className="flex-shrink pl-1 pr-4">
                 <i className="fas fa-user-plus fa-2x fa-fw fa-inverse"></i>
@@ -96,6 +96,46 @@ function Indonesia() {
                 <h5 className="text-white text-3xl font-bold">Kritis</h5>
                 <h3 className="text-white text-4xl">
                   {critical}
+                  <span className="text-orange-400">
+                    <i className="fas fa-caret-up"></i>
+                  </span>
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="w-full md:w-1/2 xl:w-1/3 pt-3 px-3 md:pr-2 xl:pr-3 xl:pl-1">
+          <div className="bg-gray-900 border rounded shadow p-2">
+            <div className="flex flex-row items-center">
+              <div className="flex-shrink pl-1 pr-4">
+                <i className="fas fa-user-plus fa-2x fa-fw fa-inverse"></i>
+              </div>
+              <div className="flex-1 text-center">
+                <h5 className="text-white text-3xl font-bold">
+                  Kasus Hari ini
+                </h5>
+                <h3 className="text-white text-4xl">
+                  {todayCases}
+                  <span className="text-orange-400">
+                    <i className="fas fa-caret-up"></i>
+                  </span>
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="w-full md:w-1/2 xl:w-1/3 pt-3 px-3 md:pr-2 xl:pr-3 xl:pl-1">
+          <div className="bg-gray-900 border rounded shadow p-2">
+            <div className="flex flex-row items-center">
+              <div className="flex-shrink pl-1 pr-4">
+                <i className="fas fa-user-plus fa-2x fa-fw fa-inverse"></i>
+              </div>
+              <div className="flex-1 text-center">
+                <h5 className="text-white text-3xl font-bold">
+                  Meninggal Hari ini
+                </h5>
+                <h3 className="text-white text-4xl">
+                  {todayDeaths}
                   <span className="text-orange-400">
                     <i className="fas fa-caret-up"></i>
                   </span>
