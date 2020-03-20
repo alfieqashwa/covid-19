@@ -51,7 +51,7 @@ function Indonesia() {
           </div>
         </div>
         <div className="w-full md:w-1/2 xl:w-1/3 pt-3 px-3 md:pl-2">
-          <div className="bg-red-700 border rounded shadow p-2">
+          <div className="bg-red-900 border rounded shadow p-2">
             <div className="flex flex-row items-center">
               <div className="flex-shrink pl-1 pr-4">
                 <i className="fas fa-users fa-2x fa-fw fa-inverse" />
