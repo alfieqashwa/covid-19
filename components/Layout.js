@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default ({ children }) => {
   return (
-    <>
+    <div className="bg-gray-900">
       <ul className="flex border-b">
         <li className="-mb-px mr-1">
           <Link href="/">
@@ -34,6 +34,6 @@ export default ({ children }) => {
         </li>
       </ul>
       <div>{children}</div>
-    </>
+    </div>
   );
 };

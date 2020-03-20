@@ -8,15 +8,6 @@ export default () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>ERROR!</p>;
 
-  // cases: 41035
-  // casesPerOneMillion: 679
-  // country: "Italy"
-  // critical: 2498
-  // deaths: 3405
-  // recovered: 4440
-  // todayCases: 0
-  // todayDeaths: 0
-  // console.log(data);
   return (
     <>
       <div className="w-full md:w-1/2 xl:w-1/3 pt-3 px-3 md:pr-2">
@@ -39,7 +30,7 @@ export default () => {
                   <i className="fa fa-wallet fa-2x fa-fw fa-inverse" />
                 </div>
                 <div className="flex-1 text-left">
-                  <h5 className="text-white text-2xl ">
+                  <h5 className="text-purple-300 text-2xl font-bold">
                     {formatNum(c.country)}
                   </h5>
                   <h3 className="text-white text-1xl">

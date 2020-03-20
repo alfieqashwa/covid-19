@@ -13,7 +13,7 @@ export default () => {
     <>
       <div className="flex flex-wrap mb-2">
         <div className="w-full md:w-1/2 xl:w-1/3 pt-3 px-3 md:pr-2">
-          <div className="bg-red-600 border rounded shadow p-2">
+          <div className="bg-yellow-700 border rounded shadow p-2">
             <div className="flex flex-row items-center">
               <div className="flex-shrink pl-1 pr-4">
                 <i className="fa fa-wallet fa-2x fa-fw fa-inverse" />
@@ -31,7 +31,7 @@ export default () => {
           </div>
         </div>
         <div className="w-full md:w-1/2 xl:w-1/3 pt-3 px-3 md:pl-2">
-          <div className="bg-black-600 border rounded shadow p-2">
+          <div className="bg-red-800 border rounded shadow p-2">
             <div className="flex flex-row items-center">
               <div className="flex-shrink pl-1 pr-4">
                 <i className="fas fa-users fa-2x fa-fw fa-inverse" />
@@ -51,7 +51,7 @@ export default () => {
           </div>
         </div>
         <div className="w-full md:w-1/2 xl:w-1/3 pt-3 px-3 md:pr-2 xl:pr-3 xl:pl-1">
-          <div className="bg-green-600 border rounded shadow p-2">
+          <div className="bg-green-700 border rounded shadow p-2">
             <div className="flex flex-row items-center">
               <div className="flex-shrink pl-1 pr-4">
                 <i className="fas fa-user-plus fa-2x fa-fw fa-inverse"></i>
