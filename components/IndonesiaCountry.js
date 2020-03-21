@@ -15,9 +15,10 @@ import { CovidContext } from "../utils/Context";
 import { formatNum } from "../utils/formatNum";
 
 export default () => {
-  const { dataID, dataAll, loadingID, errorID, refetchID } = useContext(
+  const { dataAll, dataID, loadingID, errorID, refetchID } = useContext(
     CovidContext
   );
+
   if (loadingID)
     return (
       <>

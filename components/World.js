@@ -79,8 +79,8 @@ export default () => {
               </div>
               <div className="flex-1 text-right md:text-center">
                 <h5 className="font-bold uppercase text-gray-400">Data</h5>
-                <h3 className="font-bold text-3xl text-gray-600">
-                  Seluruh Dunia
+                <h3 className="font-bold text-3xl uppercase text-gray-600">
+                  All World
                   <span className="text-green-500">
                     <i className="fas fa-caret-up" />
                   </span>

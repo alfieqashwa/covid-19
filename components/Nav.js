@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Link from "next/link";
+import ActiveLink from "./ActiveLink";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHome,
@@ -72,19 +73,19 @@ export default () => {
         >
           <ul className="list-reset lg:flex flex-1 items-center px-4 md:px-0">
             <li className="mr-6 my-2 md:my-0">
-              <Link href="/">
-                <a className="block py-1 md:py-3 pl-1 align-middle text-blue-400 no-underline hover:text-gray-100 border-b-2 border-blue-400 hover:border-blue-400">
+              <ActiveLink href="/">
+                <a className="block py-1 md:py-3 pl-1 align-middle text-blue-400 no-underline hover:text-gray-100 border-b-2 border-gray-900 hover:border-blue-400 active:border-blue-400">
                   <FontAwesomeIcon
                     icon={faHome}
                     className="mr-3 text-blue-400"
                   />
-                  <span className="pb-1 md:pb-0 text-sm">World</span>
+                  <span className="pb-1 md:pb-0 text-sm">Home</span>
                 </a>
-              </Link>
+              </ActiveLink>
             </li>
             <li className="mr-6 my-2 md:my-0">
               <Link href="/indonesia">
-                <a className="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-100 border-b-2 border-gray-900  hover:border-pink-400">
+                <a className="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-100 border-b-2 border-gray-900 hover:border-pink-400 active:border-pink-400">
                   <FontAwesomeIcon
                     icon={faChartArea}
                     className="mr-3 text-pink-400"
