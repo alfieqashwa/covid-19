@@ -8,11 +8,15 @@
     "start": "next start"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.27",
+    "@fortawesome/free-solid-svg-icons": "^5.12.1",
+    "@fortawesome/react-fontawesome": "^0.1.9",
     "@fullhuman/postcss-purgecss": "^2.1.0",
     "@zeit/next-css": "^1.0.1",
     "autoprefixer": "^9.7.4",
     "axios": "^0.19.2",
     "axios-hooks": "^1.9.0",
+    "moment": "^2.24.0",
     "next": "9.3.0",
     "postcss-import": "^12.0.1",
     "react": "16.13.0",

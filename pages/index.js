@@ -1,10 +1,15 @@
 import Layout from "../components/Layout";
-import All from "../components/All";
-import Countries from "../components/Countries";
+import ConsoleContent from "../components/ConsoleContent";
 
 export default () => (
   <Layout>
-    <All />
-    <Countries />
+    <ConsoleContent />
   </Layout>
 );
+
+// export default () => (
+//   <Layout>
+//     <All />
+//     <Countries />
+//   </Layout>
+// );

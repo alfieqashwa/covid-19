@@ -1,39 +1,33 @@
 import Link from "next/link";
+import Nav from "./Nav";
 
 export default ({ children }) => {
   return (
-    <div className="bg-gray-900">
-      <ul className="flex border-b">
-        <li className="-mb-px mr-1">
-          <Link href="/">
-            <a className="bg-white inline-block border-l border-t border-r rounded-t py-2 px-4 text-blue-700 font-semibold">
-              World
-            </a>
-          </Link>
-        </li>
-        <li className="mr-1">
-          <Link href="/indonesia">
-            <a className="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold">
-              Indonesia
-            </a>
-          </Link>
-        </li>
-        <li className="mr-1">
-          <Link href="#">
-            <a className="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold">
-              Map
-            </a>
-          </Link>
-        </li>
-        <li className="mr-1">
-          <Link href="#">
-            <a className="bg-white inline-block py-2 px-4 text-gray-400 font-semibold">
-              About
-            </a>
-          </Link>
-        </li>
-      </ul>
-      <div>{children}</div>
+    <div>
+      <body className="bg-black-alt font-sans leading-normal tracking-normal">
+        <div className="bg-gray-900">
+          <Nav />
+          {/* Container */}
+          <div className="container w-full mx-auto pt-20">
+            <div className="w-full px-4 md:px-0 md:mt-8 mb-16 text-gray-800 leading-normal">
+              {children}
+            </div>
+          </div>
+        </div>
+      </body>
+      <style jsx>
+        {`
+          .bg-black-alt {
+            background: #191919;
+          }
+          .text-black-alt {
+            color: #191919;
+          }
+          .border-black-alt {
+            border-color: #191919;
+          }
+        `}
+      </style>
     </div>
   );
 };
