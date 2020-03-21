@@ -1,3 +1,23 @@
+import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHome,
+  faChartArea,
+  faHeartbeat,
+  faSyncAlt,
+  faAllergies
+} from "@fortawesome/free-solid-svg-icons";
+
+function MyImage() {
+  return (
+    <img
+      src="/drliwenliang.jpg"
+      alt="Dr. Li Wenliang"
+      className="w-8 h-8 rounded-full mr-4"
+    />
+  );
+}
+
 export default () => {
   return (
     <nav id="header" className="bg-gray-900 fixed w-full z-10 top-0 shadow">
@@ -7,7 +27,13 @@ export default () => {
             className="text-gray-100 text-base xl:text-xl no-underline hover:no-underline font-bold"
             href="#"
           >
-            <i className="fas fa-moon text-blue-400 pr-3"></i> Covid-19
+            <FontAwesomeIcon
+              icon={faAllergies}
+              size="2x"
+              pulse
+              className="text-blue-400 pr-3"
+            />{" "}
+            Covid-19
           </a>
         </div>
         <div className="w-1/2 pr-0">
@@ -17,13 +43,9 @@ export default () => {
                 id="userButton"
                 className="flex items-center focus:outline-none mr-3"
               >
-                <img
-                  className="w-8 h-8 rounded-full mr-4"
-                  src="http://i.pravatar.cc/300"
-                  alt="Avatar of User"
-                />{" "}
+                <MyImage />
                 <span className="hidden md:inline-block text-gray-100">
-                  Hi, User
+                  In Memory of Dr.Li Wenliang
                 </span>
                 <svg
                   className="pl-2 h-2 fill-current text-gray-100"
@@ -98,22 +120,26 @@ export default () => {
         >
           <ul className="list-reset lg:flex flex-1 items-center px-4 md:px-0">
             <li className="mr-6 my-2 md:my-0">
-              <a
-                href="#"
-                className="block py-1 md:py-3 pl-1 align-middle text-blue-400 no-underline hover:text-gray-100 border-b-2 border-blue-400 hover:border-blue-400"
-              >
-                <i className="fas fa-home fa-fw mr-3 text-blue-400"></i>
-                <span className="pb-1 md:pb-0 text-sm">Home</span>
-              </a>
+              <Link href="/">
+                <a className="block py-1 md:py-3 pl-1 align-middle text-blue-400 no-underline hover:text-gray-100 border-b-2 border-blue-400 hover:border-blue-400">
+                  <FontAwesomeIcon
+                    icon={faHome}
+                    className="mr-3 text-blue-400"
+                  />
+                  <span className="pb-1 md:pb-0 text-sm">World</span>
+                </a>
+              </Link>
             </li>
             <li className="mr-6 my-2 md:my-0">
-              <a
-                href="#"
-                className="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-100 border-b-2 border-gray-900  hover:border-pink-400"
-              >
-                <i className="fas fa-tasks fa-fw mr-3"></i>
-                <span className="pb-1 md:pb-0 text-sm">Tasks</span>
-              </a>
+              <Link href="/indonesia">
+                <a className="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-100 border-b-2 border-gray-900  hover:border-pink-400">
+                  <FontAwesomeIcon
+                    icon={faChartArea}
+                    className="mr-3 text-pink-400"
+                  />
+                  <span className="pb-1 md:pb-0 text-sm">Indonesia</span>
+                </a>
+              </Link>
             </li>
             <li className="mr-6 my-2 md:my-0">
               <a
@@ -121,7 +147,7 @@ export default () => {
                 className="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-100 border-b-2 border-gray-900  hover:border-purple-400"
               >
                 <i className="fa fa-envelope fa-fw mr-3"></i>
-                <span className="pb-1 md:pb-0 text-sm">Messages</span>
+                <span className="pb-1 md:pb-0 text-sm">Country</span>
               </a>
             </li>
             <li className="mr-6 my-2 md:my-0">
@@ -131,15 +157,6 @@ export default () => {
               >
                 <i className="fas fa-chart-area fa-fw mr-3"></i>
                 <span className="pb-1 md:pb-0 text-sm">Analytics</span>
-              </a>
-            </li>
-            <li className="mr-6 my-2 md:my-0">
-              <a
-                href="#"
-                className="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-100 border-b-2 border-gray-900  hover:border-red-400"
-              >
-                <i className="fa fa-wallet fa-fw mr-3"></i>
-                <span className="pb-1 md:pb-0 text-sm">Payments</span>
               </a>
             </li>
           </ul>
@@ -168,4 +185,3 @@ export default () => {
     </nav>
   );
 };
-
