@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -8,97 +9,47 @@ import {
   faAllergies
 } from "@fortawesome/free-solid-svg-icons";
 
-function MyImage() {
-  return (
-    <img
-      src="/drliwenliang.jpg"
-      alt="Dr. Li Wenliang"
-      className="w-8 h-8 rounded-full mr-4"
-    />
-  );
-}
-
 export default () => {
+  const [isToggle, setIsToggle] = useState(false);
+
+  const onClick = () => {
+    setIsToggle(t => !t);
+  };
+
   return (
     <nav id="header" className="bg-gray-900 fixed w-full z-10 top-0 shadow">
-      <div className="w-full container mx-auto flex flex-wrap items-center mt-0 pt-3 pb-3 md:pb-0">
+      <div className="w-full container mx-auto flex flex-wrap items-center mt-0 pt-3 pb-3 md:pb-2">
         <div className="w-1/2 pl-2 md:pl-0">
-          <a
-            className="text-gray-100 text-base xl:text-xl no-underline hover:no-underline font-bold"
-            href="#"
-          >
-            <FontAwesomeIcon
-              icon={faAllergies}
-              size="2x"
-              pulse
-              className="text-blue-400 pr-3"
-            />{" "}
-            Covid-19
-          </a>
+          <Link href="/">
+            <a className="text-gray-100 pl-2 text-base xl:text-xl no-underline hover:no-underline font-bold">
+              <FontAwesomeIcon
+                icon={faAllergies}
+                size="2x"
+                pulse
+                className="text-blue-400 pr-3"
+              />
+              <span className="pl-2">Covid-19</span>
+            </a>
+          </Link>
         </div>
         <div className="w-1/2 pr-0">
           <div className="flex relative inline-block float-right">
             <div className="relative text-sm text-gray-100">
               <button
-                id="userButton"
+                type="button"
                 className="flex items-center focus:outline-none mr-3"
               >
                 <MyImage />
-                <span className="hidden md:inline-block text-gray-100">
+                <span className="hidden md:inline-block text-gray-400 font-bold">
                   In Memory of Dr.Li Wenliang
                 </span>
-                <svg
-                  className="pl-2 h-2 fill-current text-gray-100"
-                  version="1.1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 129 129"
-                  xmlnsXlink="http://www.w3.org/1999/xlink"
-                  enable-background="new 0 0 129 129"
-                >
-                  <g>
-                    <path d="m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z" />
-                  </g>
-                </svg>
               </button>
-              <div
-                id="userMenu"
-                className="bg-gray-900 rounded shadow-md mt-2 absolute mt-12 top-0 right-0 min-w-full overflow-auto z-30 invisible"
-              >
-                <ul className="list-reset">
-                  <li>
-                    <a
-                      href="#"
-                      className="px-4 py-2 block text-gray-100 hover:bg-gray-800 no-underline hover:no-underline"
-                    >
-                      My account
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="px-4 py-2 block text-gray-100 hover:bg-gray-800 no-underline hover:no-underline"
-                    >
-                      Notifications
-                    </a>
-                  </li>
-                  <li>
-                    <hr className="border-t mx-2 border-gray-400" />
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="px-4 py-2 block text-gray-100 hover:bg-gray-800 no-underline hover:no-underline"
-                    >
-                      Logout
-                    </a>
-                  </li>
-                </ul>
-              </div>
             </div>
 
             <div className="block lg:hidden pr-4">
               <button
-                id="nav-toggle"
+                type="button"
+                onClick={onClick}
                 className="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-gray-100 hover:border-teal-500 appearance-none focus:outline-none"
               >
                 <svg
@@ -115,8 +66,9 @@ export default () => {
         </div>
 
         <div
-          className="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block mt-2 lg:mt-0 bg-gray-900 z-20"
-          id="nav-content"
+          className={`w-full flex-grow lg:flex lg:items-center lg:w-auto ${
+            isToggle ? "block" : "hidden"
+          } lg:block mt-2 lg:mt-0 bg-gray-900 z-20`}
         >
           <ul className="list-reset lg:flex flex-1 items-center px-4 md:px-0">
             <li className="mr-6 my-2 md:my-0">
@@ -137,7 +89,7 @@ export default () => {
                     icon={faChartArea}
                     className="mr-3 text-pink-400"
                   />
-                  <span className="pb-1 md:pb-0 text-sm">Indonesia</span>
+                  <span className="pb-1 md:pb-0 text-sm ">Indonesia</span>
                 </a>
               </Link>
             </li>
@@ -185,3 +137,13 @@ export default () => {
     </nav>
   );
 };
+
+function MyImage() {
+  return (
+    <img
+      src="/drliwenliang.jpg"
+      alt="Dr. Li Wenliang"
+      className="w-8 h-8 rounded-full mr-4"
+    />
+  );
+}

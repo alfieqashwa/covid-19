@@ -1,15 +1,8 @@
 import Layout from "../components/Layout";
-import ConsoleContent from "../components/ConsoleContent";
+import World from "../components/World";
 
 export default () => (
   <Layout>
-    <ConsoleContent />
+    <World />
   </Layout>
 );
-
-// export default () => (
-//   <Layout>
-//     <All />
-//     <Countries />
-//   </Layout>
-// );
