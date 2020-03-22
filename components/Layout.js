@@ -20,6 +20,11 @@ export default ({ children }) => {
     refetchID
   ] = useAxios("/countries/indonesia");
 
+  const [
+    { data: dataHis, loadingHis: loadingHis, error: errorHis },
+    refetchHis
+  ] = useAxios("/historical/indonesia");
+
   return (
     <>
       <div className="bg-black-alt font-sans leading-normal tracking-normal">
@@ -37,7 +42,11 @@ export default ({ children }) => {
                   dataID,
                   loadingID,
                   errorID,
-                  refetchID
+                  refetchID,
+                  dataHis,
+                  loadingHis,
+                  errorHis,
+                  refetchHis
                 }}
               >
                 {children}

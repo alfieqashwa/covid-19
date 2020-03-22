@@ -1,17 +1,20 @@
 import { useContext } from "react";
-import moment from "moment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
+  faSyncAlt,
   faGlobeAmericas,
   faHospitalAlt,
   faProcedures,
   faHeartbeat,
-  faSyncAlt,
   faAllergies
 } from "@fortawesome/free-solid-svg-icons";
 
 import { CovidContext } from "../utils/Context";
 import { formatNum } from "../utils/formatNum";
+import LastUpdated from "./LastUpdated";
+import DoughnutChart from "./DoughnutChart";
+import BarChart from "./BarChart";
+import LineChart from "./LineChart";
 
 export default () => {
   const { dataAll, loadingAll, errorAll, refetchAll } = useContext(
@@ -56,10 +59,7 @@ export default () => {
       </>
     );
 
-  const { cases, deaths, recovered, updated } = dataAll;
-  const lastUpdated = moment(updated)
-    .startOf("hour")
-    .fromNow();
+  const { cases, deaths, recovered } = dataAll;
 
   return (
     <>
@@ -78,9 +78,11 @@ export default () => {
                 </div>
               </div>
               <div className="flex-1 text-right md:text-center">
-                <h5 className="font-bold uppercase text-gray-400">Data</h5>
+                <h5 className="font-bold uppercase text-gray-400">
+                  Total Data
+                </h5>
                 <h3 className="font-bold text-3xl uppercase text-gray-600">
-                  All World
+                  The World
                   <span className="text-green-500">
                     <i className="fas fa-caret-up" />
                   </span>
@@ -163,31 +165,16 @@ export default () => {
           </div>
         </div>
 
-        <div className="w-full md:w-1/2 xl:w-1/3 p-3">
-          <div className="bg-gray-900 border border-gray-800 rounded shadow p-2">
-            <div className="flex flex-row items-center">
-              <div className="flex-shrink pr-4">
-                <button onClick={refetchAll}>
-                  <div className="rounded px-4 py-3 bg-indigo-700">
-                    <FontAwesomeIcon icon={faSyncAlt} size="2x" inverse spin />
-                  </div>
-                </button>
-              </div>
-
-              <div className="flex-1 text-right md:text-center">
-                <h5 className="font-bold uppercase text-gray-400">
-                  Last Updated
-                </h5>
-
-                <h3 className="font-bold text-3xl text-gray-600">
-                  {lastUpdated}
-                </h3>
-              </div>
-            </div>
-          </div>
-        </div>
+        {/* START LAST UPDATED */}
+        <LastUpdated onClick={refetchAll} />
       </div>
       <hr className="border-b-2 border-gray-600 my-8 mx-4" />
+      <div className="flex flex-row flex-wrap flex-grow mt-2">
+        {/* GRAPH */}
+        <BarChart />
+        <LineChart />
+        <DoughnutChart cases={cases} deaths={deaths} recovered={recovered} />
+      </div>
     </>
   );
 };
