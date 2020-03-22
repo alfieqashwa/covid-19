@@ -15,9 +15,19 @@ import {
 import { CovidContext } from "../utils/Context";
 import { formatNum } from "../utils/formatNum";
 import LastUpdated from "./LastUpdated";
+import DailyTableIndonesia from "./DailyTableIndonesia";
 
 export default () => {
-  const { dataID, loadingID, errorID, refetchID } = useContext(CovidContext);
+  const {
+    dataID,
+    loadingID,
+    errorID,
+    refetchID,
+    dataHistID,
+    loadingHistID,
+    errorHistID,
+    refetchHistID
+  } = useContext(CovidContext);
 
   if (loadingID)
     return (
@@ -65,8 +75,8 @@ export default () => {
     active,
     critical,
     todayCases,
-    todayDeaths,
-    casesPerOneMillion
+    todayDeaths
+    // casesPerOneMillion
   } = dataID;
 
   return (
@@ -261,6 +271,10 @@ export default () => {
         <LastUpdated onClick={refetchID} />
       </div>
       <hr className="border-b-2 border-gray-600 my-8 mx-4" />
+      <div className="flex flex-row flex-wrap flex-grow mt-2">
+        {/* START GRAPH */}
+        <DailyTableIndonesia />
+      </div>
     </>
   );
 };

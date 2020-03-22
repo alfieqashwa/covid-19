@@ -18,6 +18,10 @@ export default ({ children }) => {
     { data: dataID, loading: loadingID, error: errorID },
     refetchID
   ] = myUseAxios("/countries/indonesia");
+  const [
+    { data: dataCountries, loading: loadingCountries, error: errorCountries },
+    refetchCountries
+  ] = myUseAxios("/countries");
 
   return (
     <>
@@ -36,7 +40,11 @@ export default ({ children }) => {
                   dataID,
                   loadingID,
                   errorID,
-                  refetchID
+                  refetchID,
+                  dataCountries,
+                  loadingCountries,
+                  errorCountries,
+                  refetchCountries
                 }}
               >
                 {children}

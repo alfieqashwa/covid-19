@@ -1,62 +1,51 @@
-import useAxios from "axios-hooks";
-import { BASE_URL } from "./BaseUrl";
+import React, { useContext } from "react";
+import { CovidContext } from "../utils/Context";
 import { formatNum } from "../utils/formatNum";
 
 export default () => {
-  const [{ data, loading, error }, refetch] = useAxios(`${BASE_URL}/countries`);
+  const {
+    dataCountries,
+    loadingCountries,
+    errorCountries,
+    refetchCountries
+  } = useContext(CovidContext);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>ERROR!</p>;
+  if (loadingCountries) return <p>Loading COun</p>;
+  if (errorCountries) return <p>ERRORR</p>;
 
   return (
-    <>
-      <div className="w-full md:w-1/2 xl:w-1/3 pt-3 px-3 md:pr-2">
-        <button
-          onClick={refetch}
-          className="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 border border-teal-700 rounded"
-        >
-          RELOAD COUNTRIES
-        </button>
-      </div>
-      <div className="flex flex-wrap mb-2">
-        {data.map((c, i) => (
-          <div
-            key={i}
-            className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 pt-3 px-3 mb-4"
-          >
-            <div className="bg-gray-900 border rounded shadow p-2">
-              <div className="flex flex-row items-center">
-                <div className="flex-shrink pl-1 pr-4">
-                  <i className="fa fa-wallet fa-2x fa-fw fa-inverse" />
-                </div>
-                <div className="flex-1 text-left">
-                  <h5 className="text-purple-300 text-2xl font-bold">
-                    {formatNum(c.country)}
-                  </h5>
-                  <h3 className="text-white text-1xl">
-                    Kasus: {formatNum(c.cases)}
-                  </h3>
-                  <h3 className="text-white text-1xl">
-                    Kritis: {formatNum(c.critical)}
-                  </h3>
-                  <h3 className="text-white text-1xl">
-                    Meninggal: {formatNum(c.deaths)}
-                  </h3>
-                  <h3 className="text-white text-1xl">
-                    Pulih: {formatNum(c.recovered)}
-                  </h3>
-                  <h3 className="text-white text-1xl">
-                    Kasus Hari ini: {formatNum(c.todayCases)}
-                  </h3>
-                  <h3 className="text-white text-1xl">
-                    Meninggal Hari ini: {formatNum(c.todayDeaths)}
-                  </h3>
-                </div>
-              </div>
-            </div>
-          </div>
+    <table className="text-left w-full">
+      <thead className="bg-gray-900 border-gray-800 rounded shadow flex text-gray-600 w-full">
+        <tr className="flex w-full mb-4">
+          <th className="p-2 w-1/5 text-sm sm:text-base">Negara</th>
+          <th className="p-2 w-1/5  text-sm sm:text-base text-right">Kasus</th>
+          <th className="p-2 w-1/5  text-sm sm:text-base text-right">Kritis</th>
+          <th className="p-2 w-1/5  text-sm sm:text-base text-right">Wafat</th>
+          <th className="p-2 w-1/5  text-sm sm:text-base text-right">Pulih</th>
+        </tr>
+      </thead>
+      <tbody
+        className="bg-grey-900 flex flex-col items-center justify-between overflow-y-scroll w-full"
+        style={{ height: "50vh" }}
+      >
+        {dataCountries.map((c, i) => (
+          <tr className="flex w-full text-gray-700" key={i}>
+            <td className="p-2 w-1/5 text-xs sm:text-base">{c.country}</td>
+            <td className="p-2 w-1/5 text-xs sm:text-base text-right">
+              {formatNum(c.cases)}
+            </td>
+            <td className="p-2 w-1/5 text-xs sm:text-base text-right">
+              {formatNum(c.critical)}
+            </td>
+            <td className="p-2 w-1/5 text-xs sm:text-base text-right">
+              {formatNum(c.deaths)}
+            </td>
+            <td className="p-2 w-1/5 text-xs sm:text-base text-right">
+              {formatNum(c.recovered)}
+            </td>
+          </tr>
         ))}
-      </div>
-    </>
+      </tbody>
+    </table>
   );
 };
