@@ -1,12 +1,11 @@
 import axios from "axios";
 import { makeUseAxios } from "axios-hooks";
-import Link from "next/link";
 
 import Nav from "./Nav";
 import { BASE_URL } from "../utils/BaseUrl";
 import { CovidContext } from "../utils/Context";
 
-const useAxios = makeUseAxios({
+const myUseAxios = makeUseAxios({
   axios: axios.create({ baseURL: BASE_URL })
 });
 
@@ -14,16 +13,11 @@ export default ({ children }) => {
   const [
     { data: dataAll, loading: loadingAll, error: errorAll },
     refetchAll
-  ] = useAxios("/all");
+  ] = myUseAxios("/all");
   const [
     { data: dataID, loading: loadingID, error: errorID },
     refetchID
-  ] = useAxios("/countries/indonesia");
-
-  const [
-    { data: dataHis, loadingHis: loadingHis, error: errorHis },
-    refetchHis
-  ] = useAxios("/historical/indonesia");
+  ] = myUseAxios("/countries/indonesia");
 
   return (
     <>
@@ -42,11 +36,7 @@ export default ({ children }) => {
                   dataID,
                   loadingID,
                   errorID,
-                  refetchID,
-                  dataHis,
-                  loadingHis,
-                  errorHis,
-                  refetchHis
+                  refetchID
                 }}
               >
                 {children}

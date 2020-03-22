@@ -1,6 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
+import useAxios from "axios-hooks";
+import moment from "moment";
 import { Bar } from "react-chartjs-2";
-import { CovidContext } from "../utils/Context";
+
+import { MATHDRO_URL } from "../utils/BaseUrl";
 
 const data = {
   labels: ["Januari", "Februari", "Maret", "April"],
@@ -50,12 +53,19 @@ const plugins = [
 ];
 
 function BarChart() {
-  const { dataHis } = useContext(CovidContext);
-  console.log(JSON.stringify(dataHis));
+  const [
+    { data: dataDaily, loading: loadingDaily, error: errorDaily },
+    refetchDaily
+  ] = useAxios(`${MATHDRO_URL}/daily`);
 
+  if (loadingDaily) return <p>Loadingg...</p>;
+  if (errorDaily) return <p>ERROR...</p>;
+
+  const tanggal = dataDaily.map(x => moment(x.reportDate).format("MM Do YYYY"));
+  const mainlandChina = dataDaily.map(x => x.mainlandChina);
+  console.log(JSON.stringify(mainlandChina, null, 2));
   return (
     <div className="w-full md:w-1/2 p-3">
-      {/* Graph Card */}
       <div className="bg-gray-900 border border-gray-800 rounded shadow">
         <div className="border-b border-gray-800 p-3">
           <h5 className="font-bold uppercase text-gray-600">
@@ -64,40 +74,41 @@ function BarChart() {
         </div>
         <div className="p-5">
           <div>
-            <Bar data={data} options={options} plugins={plugins} />
+            <Bar
+              data={{
+                labels: ["Januari", "Februari", "Maret", "April"],
+                datasets: [
+                  {
+                    label: "Dummy Data-1",
+                    type: "bar",
+                    data: [5000, 6000, 7000, 8000],
+                    borderColor: "rgb(255, 99, 132)",
+                    backgroundColor: "rgba(255, 99, 132, 0.2)"
+                  },
+                  {
+                    label: "Dummy Data-2",
+                    type: "line",
+                    data: [1700, 3900, 4700, 5700, 7000],
+                    fill: false,
+                    borderColor: "rgb(54, 162, 235)"
+                  }
+                ]
+              }}
+              options={options}
+              plugins={plugins}
+            />
           </div>
-          {/* <script>
-                                new Chart(document.getElementById("chartjs-7"), {
-                                    "type": "bar",
-                                    "data": {
-                                        "labels": ["January", "February", "March", "April"],
-                                        "datasets": [{
-                                            "label": "Page Impressions",
-                                            "data": [10, 20, 30, 40],
-                                            "borderColor": "rgb(255, 99, 132)",
-                                            "backgroundColor": "rgba(255, 99, 132, 0.2)"
-                                        }, {
-                                            "label": "Adsense Clicks",
-                                            "data": [5, 15, 10, 30],
-                                            "type": "line",
-                                            "fill": false,
-                                            "borderColor": "rgb(54, 162, 235)"
-                                        }]
-                                    },
-                                    "options": {
-                                        "scales": {
-                                            "yAxes": [{
-                                                "ticks": {
-                                                    "beginAtZero": true
-                                                }
-                                            }]
-                                        }
-                                    }
-                                });
-                            </script> */}
         </div>
+        {/* TODOS */}
+        {/* <div>
+          {dataDaily.map(x => (
+            <pre>
+              {moment(x.reportDate).format("MMM Do YY")}: MainlandChina{" "}
+              {x.mainlandChina}
+            </pre>
+          ))}
+        </div> */}
       </div>
-      {/* Graph Card */}
     </div>
   );
 }

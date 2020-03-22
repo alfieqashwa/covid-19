@@ -175,7 +175,9 @@ export default () => {
                 </div>
               </div>
               <div className="flex-1 text-right md:text-center">
-                <h5 className="font-bold uppercase text-gray-400">Aktif</h5>
+                <h5 className="font-bold uppercase text-gray-400">
+                  Terinfeksi
+                </h5>
                 <h3 className="font-bold text-3xl text-gray-600">
                   {formatNum(active)}
                   <span className="text-green-500">

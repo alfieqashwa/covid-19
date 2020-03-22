@@ -3,7 +3,8 @@ import { Doughnut } from "react-chartjs-2";
 
 function DoughnutChart({ cases, deaths, recovered }) {
   return (
-    <div className="w-full md:w-1/2 xl:w-1/3 p-3">
+    // <div className="w-full md:w-1/2 xl:w-1/3 p-3">
+    <div className="w-full md:w-1/2 p-3">
       {/* Graph Card */}
       <div className="bg-gray-900 border border-gray-800 rounded shadow">
         <div className="border-b border-gray-800 p-3">

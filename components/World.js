@@ -172,8 +172,8 @@ export default () => {
       <div className="flex flex-row flex-wrap flex-grow mt-2">
         {/* GRAPH */}
         <BarChart />
-        <LineChart />
         <DoughnutChart cases={cases} deaths={deaths} recovered={recovered} />
+        <LineChart />
       </div>
     </>
   );
