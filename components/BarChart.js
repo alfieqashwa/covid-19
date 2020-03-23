@@ -81,14 +81,14 @@ function BarChart() {
                   {
                     label: "Dummy Data-1",
                     type: "bar",
-                    data: [5000, 6000, 7000, 8000],
+                    data: [500, 600, 700, 800],
                     borderColor: "rgb(255, 99, 132)",
                     backgroundColor: "rgba(255, 99, 132, 0.2)"
                   },
                   {
                     label: "Dummy Data-2",
                     type: "line",
-                    data: [1700, 3900, 4700, 5700, 7000],
+                    data: [170, 390, 470, 570, 700],
                     fill: false,
                     borderColor: "rgb(54, 162, 235)"
                   }
