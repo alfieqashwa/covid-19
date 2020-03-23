@@ -14,8 +14,8 @@ export default () => {
   if (errorCountries) return <p>ERRORR</p>;
 
   return (
-    <div class="w-full p-3">
-      <div class="bg-gray-900 border border-gray-800 rounded shadow">
+    <div className="w-full p-3">
+      <div className="bg-gray-900 border border-gray-800 rounded shadow">
         {/* border-b border-gray-800 p-3 */}
         <table className="text-left w-full">
           <thead className="bg-gray-900 border-gray-800 rounded shadow flex text-gray-600 w-full p-3">
