@@ -8,7 +8,7 @@ export const Loading = ({ text, children }) => (
       </div>
       <div className="flex-1 text-center md:text-center">
         <h5 className="font-bold uppercase text-gray-100 text-2xl font-bold my-2">
-          {text}
+          {text && text}
         </h5>
       </div>
     </center>
@@ -24,7 +24,7 @@ export const Error = ({ text, children }) => (
       </div>
       <div className="flex-1 text-center md:text-center">
         <h5 className="font-bold uppercase text-gray-100 text-2xl font-bold my-2">
-          {text}
+          {text && text}
         </h5>
       </div>
     </center>

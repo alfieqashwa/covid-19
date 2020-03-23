@@ -62,7 +62,6 @@ function BarChart() {
   if (errorDaily) return <p>ERROR...</p>;
 
   const tanggal = dataDaily.map(x => moment(x.reportDate).format("MM Do YYYY"));
-  const mainlandChina = dataDaily.map(x => x.mainlandChina);
   // console.log(JSON.stringify(mainlandChina, null, 2));
   return (
     <div className="w-full md:w-1/2 p-3">

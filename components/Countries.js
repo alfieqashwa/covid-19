@@ -15,7 +15,7 @@ export default () => {
 
   if (loadingCountries)
     return (
-      <Loading text="Loading ...">
+      <Loading>
         <FontAwesomeIcon icon={faSyncAlt} size="6x" inverse spin />
       </Loading>
     );
@@ -34,42 +34,44 @@ export default () => {
         <table className="text-left w-full">
           <thead className="bg-gray-900 border-gray-800 rounded shadow flex text-gray-600 w-full p-1 md:p-3">
             <tr className="flex w-full">
-              <th className="p-1 w-1/5 text-sm sm:text-base">
+              <th className="py-1 w-1/5 text-sm sm:text-base">
                 <button
-                  className=" bg-gray-900 border border-gray-800 rounded shadow text-indigo-800 font-bold p-1 "
+                  className="bg-gray-900 border border-gray-800 rounded shadow text-indigo-700 font-bold p-1 "
                   onClick={refetchCountries}
                 >
                   Negara
                 </button>
               </th>
-              <th className="p-2 w-1/5  text-sm sm:text-base text-right">
+              <th className="text-yellow-600 p-2 w-1/5  text-sm sm:text-base text-right">
                 Kasus
               </th>
-              <th className="p-2 w-1/5  text-sm sm:text-base text-right">
+              <th className="text-orange-500 p-2 w-1/5  text-sm sm:text-base text-right">
                 Kritis
               </th>
-              <th className="p-2 w-1/5  text-sm sm:text-base text-right">
+              <th className="text-red-700 p-2 w-1/5  text-sm sm:text-base text-right">
                 Wafat
               </th>
-              <th className="p-2 w-1/5  text-sm sm:text-base text-right">
+              <th className="text-green-600 p-2 w-1/5  text-sm sm:text-base text-right">
                 Pulih
               </th>
             </tr>
           </thead>
-          <tbody className="bg-grey-900 flex w-full flex-col items-center justify-between overflow-y-auto h-64 p-1 md:p-3">
+          <tbody className="bg-grey-900 flex w-full flex-col items-center justify-between overflow-y-auto p-1 md:p-3">
             {dataCountries.map((c, i) => (
-              <tr className="flex w-full text-gray-500" key={i}>
-                <td className="p-1 w-1/5 text-xs sm:text-base">{c.country}</td>
-                <td className="p-1 w-1/5 text-xs sm:text-base text-right">
+              <tr className="flex w-full" key={i}>
+                <td className="text-gray-600 px-1 py-2 w-1/5 text-xs sm:text-base">
+                  {c.country}
+                </td>
+                <td className="text-yellow-600 p-2 text-xs w-1/5 sm:text-base text-right">
                   {formatNum(c.cases)}
                 </td>
-                <td className="p-1 w-1/5 text-xs sm:text-base text-right">
+                <td className="text-orange-500 p-2 text-xs w-1/5 sm:text-base text-right">
                   {formatNum(c.critical)}
                 </td>
-                <td className="p-1 w-1/5 text-xs sm:text-base text-right">
+                <td className="text-red-700 p-2 w-1/5 text-xs sm:text-base text-right">
                   {formatNum(c.deaths)}
                 </td>
-                <td className="p-1 w-1/5 text-xs sm:text-base text-right">
+                <td className="text-green-600 p-2 text-xs w-1/5 text-right sm:text-base">
                   {formatNum(c.recovered)}
                 </td>
               </tr>
