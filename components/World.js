@@ -177,9 +177,9 @@ export default () => {
         {/* <LineChart /> */}
       </div>
       <hr className="border-b-2 border-gray-600 my-8 mx-4" />
-      <div className="flex flex-row flex-wrap flex-grow mt-2">
-        <Countries />
-      </div>
+      {/* <div className="flex flex-row flex-wrap flex-grow mt-2"> */}
+      <Countries />
+      {/* </div> */}
     </>
   );
 };

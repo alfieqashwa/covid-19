@@ -24,10 +24,7 @@ export default () => {
           <th className="p-2 w-1/5  text-sm sm:text-base text-right">Pulih</th>
         </tr>
       </thead>
-      <tbody
-        className="bg-grey-900 flex flex-col items-center justify-between overflow-y-scroll w-full"
-        style={{ height: "50vh" }}
-      >
+      <tbody className="bg-grey-900 flex flex-col items-center justify-between overflow-y-scroll w-full h-64">
         {dataCountries.map((c, i) => (
           <tr className="flex w-full text-gray-700" key={i}>
             <td className="p-2 w-1/5 text-xs sm:text-base">{c.country}</td>
