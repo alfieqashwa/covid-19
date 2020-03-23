@@ -1,6 +1,9 @@
 import React, { useContext } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSyncAlt, faAllergies } from "@fortawesome/free-solid-svg-icons";
 import { CovidContext } from "../utils/Context";
 import { formatNum } from "../utils/formatNum";
+import { Loading, Error } from "./LoadingError";
 
 export default () => {
   const {
@@ -10,17 +13,35 @@ export default () => {
     refetchCountries
   } = useContext(CovidContext);
 
-  if (loadingCountries) return <p>Loading COun</p>;
-  if (errorCountries) return <p>ERRORR</p>;
+  if (loadingCountries)
+    return (
+      <Loading text="Countries Loading ...">
+        <FontAwesomeIcon icon={faSyncAlt} size="6x" inverse spin />
+      </Loading>
+    );
+
+  if (errorCountries)
+    return (
+      <Error text="Error !!">
+        <FontAwesomeIcon icon={faAllergies} size="6x" inverse spin />
+      </Error>
+    );
 
   return (
     <div className="w-full p-3">
       <div className="bg-gray-900 border border-gray-800 rounded shadow">
         {/* border-b border-gray-800 p-3 */}
         <table className="text-left w-full">
-          <thead className="bg-gray-900 border-gray-800 rounded shadow flex text-gray-600 w-full p-1 md:p3">
+          <thead className="bg-gray-900 border-gray-800 rounded shadow flex text-gray-600 w-full p-1 md:p-3">
             <tr className="flex w-full">
-              <th className="p-2 w-1/5 text-sm sm:text-base">Negara</th>
+              <th className="p-2 w-1/5 text-sm sm:text-base">
+                <button
+                  className=" bg-gray-900 border border-gray-800 rounded shadow text-indigo-800 font-bold px-3 py-2"
+                  onClick={refetchCountries}
+                >
+                  Negara
+                </button>
+              </th>
               <th className="p-2 w-1/5  text-sm sm:text-base text-right">
                 Kasus
               </th>

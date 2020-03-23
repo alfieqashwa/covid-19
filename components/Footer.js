@@ -1,9 +1,9 @@
 const Footer = () => (
-  <footer className="bg-gray-900 border-t border-gray-400 shadow">
+  <footer className="bg-gray-900 border-t border-gray-400 rounded shadow mx-2 p-6">
     <div className="container mx-auto flex py-8">
       <div className="w-full mx-auto flex flex-wrap">
         <div className="flex w-full">
-          <div className="px-8">
+          <div className="px-3">
             <h3 className="font-bold font-bold text-gray-100">Resource</h3>
             <ul className="list-reset items-center text-sm pt-3">
               <li>
