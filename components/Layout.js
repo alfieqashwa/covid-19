@@ -1,3 +1,4 @@
+import React from "react";
 import axios from "axios";
 import { makeUseAxios } from "axios-hooks";
 
@@ -50,8 +51,8 @@ export default ({ children }) => {
               {children}
             </CovidContext.Provider>
           </div>
+          <Footer />
         </div>
-        <Footer />
       </div>
       <style jsx>
         {`

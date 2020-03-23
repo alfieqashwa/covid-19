@@ -175,10 +175,8 @@ export default () => {
         <BarChart />
         <DoughnutChart cases={cases} deaths={deaths} recovered={recovered} />
         {/* <LineChart /> */}
+        <Countries />
       </div>
-      {/* <div className="flex flex-row flex-wrap flex-grow mt-2"> */}
-      <Countries />
-      {/* </div> */}
     </>
   );
 };
