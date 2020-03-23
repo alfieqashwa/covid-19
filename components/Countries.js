@@ -36,7 +36,7 @@ export default () => {
             <tr className="flex w-full">
               <th className="p-2 w-1/5 text-sm sm:text-base">
                 <button
-                  className=" bg-gray-900 border border-gray-800 rounded shadow text-indigo-800 font-bold px-3 py-2"
+                  className=" bg-gray-900 border border-gray-800 rounded shadow text-indigo-800 font-bold p-1 "
                   onClick={refetchCountries}
                 >
                   Negara
