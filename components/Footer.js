@@ -4,7 +4,7 @@ const Footer = () => (
       <div className="w-full mx-auto flex flex-wrap">
         <div className="flex w-full">
           <div className="px-3">
-            <h3 className="font-bold font-bold text-gray-100">Resource</h3>
+            <h3 className="font-bold font-bold text-gray-100">Resources</h3>
             <ul className="list-reset items-center text-sm pt-3">
               <li>
                 <a
@@ -13,7 +13,9 @@ const Footer = () => (
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Worldometers Coronavirus
+                  <span className="text-gray-600 font-bold">
+                    Worldometers Coronavirus
+                  </span>
                 </a>
               </li>
               <li>
@@ -23,6 +25,9 @@ const Footer = () => (
                   target="_blank"
                   rel="noopener noreferrer"
                 >
+                  <span className="text-gray-600 font-bold">
+                    Johns Hopkins University & Medicine
+                  </span>{" "}
                   Coronavirus COVID-19 Global Cases by the Center for Systems
                   Science and Engineering (CSSE)
                 </a>
@@ -35,7 +40,9 @@ const Footer = () => (
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  The site is created by Alfie Qashwa, Indonesia
+                  This non-profit site is crafted by{" "}
+                  <span className="text-gray-600 font-bold">Alfie Qashwa</span>,
+                  Indonesia
                 </a>
               </li>
             </ul>
