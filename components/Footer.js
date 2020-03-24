@@ -18,7 +18,7 @@ const Footer = () => (
                   rel="noopener noreferrer"
                 >
                   <span className="text-gray-600 font-bold">
-                    DATA SOURCE API
+                    NovelCOVID API
                   </span>
                 </a>
               </li>
