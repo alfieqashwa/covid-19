@@ -17,7 +17,7 @@ const Footer = () => (
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <span className="text-gray-600 font-bold">
+                  <span className="text-indigo-600 font-bold">
                     NovelCOVID API
                   </span>
                 </a>
@@ -61,7 +61,7 @@ const Footer = () => (
                     <FontAwesomeIcon icon={faHeart} />
                   </span>{" "}
                   by{" "}
-                  <span className="text-gray-600 font-bold">Alfie Qashwa</span>,
+                  <span className="text-gray-600 font-bold">Alfie Qashwa</span>
                 </a>
               </li>
             </ul>
