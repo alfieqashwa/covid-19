@@ -42,7 +42,7 @@ export default () => {
               >
                 <MyImage />
                 <span className="hidden md:inline-block text-gray-400 font-bold">
-                  In Memory of Dr.Li Wenliang
+                  In Memory of Dr. Li Wenliang
                 </span>
               </button>
             </div>

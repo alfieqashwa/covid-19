@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import moment from "moment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faGlobeAsia,
@@ -14,9 +13,10 @@ import {
 
 import { CovidContext } from "../utils/Context";
 import { formatNum } from "../utils/formatNum";
-import LastUpdated from "./LastUpdated";
-import DailyTableIndonesia from "./DailyTableIndonesia";
 import { Loading, Error } from "./LoadingError";
+import LastUpdated from "./LastUpdated";
+import Timeline from "./Timeline";
+// import BarChart from "./BarChart";
 
 export default () => {
   const { dataID, loadingID, errorID, refetchID } = useContext(CovidContext);
@@ -54,7 +54,7 @@ export default () => {
           <div className="bg-gray-900 border border-gray-800 rounded shadow p-2">
             <div className="flex flex-row items-center">
               <div className="flex-shrink pr-4">
-                <div className="rounded p-3 bg-teal-600">
+                <div className="rounded px-4 py-3 bg-teal-600">
                   <FontAwesomeIcon icon={faGlobeAsia} size="2x" inverse spin />
                 </div>
               </div>
@@ -148,7 +148,7 @@ export default () => {
           <div className="bg-gray-900 border border-gray-800 rounded shadow p-2">
             <div className="flex flex-row items-center">
               <div className="flex-shrink pr-4">
-                <div className="rounded p-3 bg-purple-600">
+                <div className="rounded px-4 py-3 bg-purple-600">
                   <FontAwesomeIcon icon={faMedkit} size="2x" inverse />
                 </div>
               </div>
@@ -241,8 +241,8 @@ export default () => {
       <hr className="border-b-2 border-gray-600 my-8 mx-4" />
       <div className="flex flex-row flex-wrap flex-grow mt-2">
         {/* START GRAPH */}
-        <DailyTableIndonesia />
       </div>
+      <Timeline />
     </>
   );
 };
