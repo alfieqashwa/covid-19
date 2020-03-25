@@ -1,6 +1,6 @@
 import React from "react";
 import useAxios from "axios-hooks";
-import { LineChart } from "react-chartkick";
+import { ColumnChart } from "react-chartkick";
 import "chart.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSyncAlt, faAllergies } from "@fortawesome/free-solid-svg-icons";
@@ -27,30 +27,58 @@ const Timeline = () => {
     );
 
   const {
+    standardizedCountryName,
     timeline: { cases, deaths, recovered }
   } = data;
   console.log(JSON.stringify(cases, null, 2));
   return (
-    <div className="w-full p-3">
-      {/* Graph Card */}
-      <div className="bg-gray-900 border border-gray-800 rounded shadow">
-        <div className="border-b border-gray-800 p-3">
-          <h5 className="font-bold uppercase text-gray-600">
-            Daily Historical
-          </h5>
-        </div>
-        <div className="p-5">
-          <LineChart
-            data={[
-              { name: "Kasus", data: cases },
-              { name: "Meninggal", data: deaths },
-              { name: "Pulih", data: recovered }
-            ]}
-            colors={["#d69e2e", "#c53030", "#38a169"]}
-          />
+    <>
+      <div className="w-full p-3">
+        <div className="bg-gray-900 border border-gray-800 rounded shadow">
+          <div className="border-b border-gray-800 p-3">
+            <h5 className="font-bold capitalize text-gray-600">Kasus</h5>
+          </div>
+          <div className="p-5">
+            <ColumnChart
+              data={[{ name: "Kasus", data: cases }]}
+              colors={["#d69e2e"]}
+              xtitle="Tanggal"
+              ytitle="Jumlah"
+            />
+          </div>
         </div>
       </div>
-    </div>
+      <div className="w-full p-3">
+        <div className="bg-gray-900 border border-gray-800 rounded shadow">
+          <div className="border-b border-gray-800 p-3">
+            <h5 className="font-bold capitalize text-gray-600">Meninggal</h5>
+          </div>
+          <div className="p-5">
+            <ColumnChart
+              data={[{ name: "Meninggal", data: deaths }]}
+              colors={["#c53030"]}
+              xtitle="Tanggal"
+              ytitle="Jumlah"
+            />
+          </div>
+        </div>
+      </div>
+      <div className="w-full p-3">
+        <div className="bg-gray-900 border border-gray-800 rounded shadow">
+          <div className="border-b border-gray-800 p-3">
+            <h5 className="font-bold capitalize text-gray-600">Pulih</h5>
+          </div>
+          <div className="p-5">
+            <ColumnChart
+              data={[{ name: "Pulih", data: recovered }]}
+              colors={["#38a169"]}
+              xtitle="Tanggal"
+              ytitle="Jumlah"
+            />
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 
