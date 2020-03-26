@@ -70,7 +70,7 @@ export default () => {
             <li
               className={`mr-6 my-2 md:my-0 ${
                 router.pathname === "/"
-                  ? "text-gray-500 border-b-2 border-blue-400"
+                  ? "text-blue-400 border-b-2 border-blue-400"
                   : "text-gray-500"
               }`}
             >
