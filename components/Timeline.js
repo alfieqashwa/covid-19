@@ -1,6 +1,6 @@
 import React from "react";
 import useAxios from "axios-hooks";
-import { ColumnChart } from "react-chartkick";
+import { ColumnChart, AreaChart } from "react-chartkick";
 import "chart.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSyncAlt, faAllergies } from "@fortawesome/free-solid-svg-icons";
@@ -33,10 +33,10 @@ const Timeline = () => {
   console.log(JSON.stringify(cases, null, 2));
   return (
     <>
-      <div className="w-full p-3">
+      <div className="w-full p-3 mb-6">
         <div className="bg-gray-900 border border-gray-800 rounded shadow">
-          <div className="border-b border-gray-800 p-3">
-            <h5 className="font-bold capitalize text-gray-600">Kasus</h5>
+          <div className="border-b border-gray-800 p-4">
+            <h5 className="font-bold capitalize text-yellow-600">Kasus</h5>
           </div>
           <div className="p-5">
             <ColumnChart
@@ -50,8 +50,8 @@ const Timeline = () => {
       </div>
       <div className="w-full p-3">
         <div className="bg-gray-900 border border-gray-800 rounded shadow">
-          <div className="border-b border-gray-800 p-3">
-            <h5 className="font-bold capitalize text-gray-600">Meninggal</h5>
+          <div className="border-b border-gray-800 p-4">
+            <h5 className="font-bold capitalize text-red-700">Meninggal</h5>
           </div>
           <div className="p-5">
             <ColumnChart

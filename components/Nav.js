@@ -1,8 +1,18 @@
+/*
+  source about active link:
+  https://stackoverflow.com/questions/53262263/target-active-link-when-the-route-is-active-in-next-js
+*/
+
 import { useState } from "react";
 import Link from "./ActiveLink";
 import { useRouter } from "next/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome, faFlag, faAllergies } from "@fortawesome/free-solid-svg-icons";
+import {
+  faHome,
+  faGlobeAsia,
+  faGlobeAmericas,
+  faAllergies
+} from "@fortawesome/free-solid-svg-icons";
 
 export default () => {
   const router = useRouter();
@@ -94,7 +104,7 @@ export default () => {
               <Link href="/indonesia">
                 <a className="block py-1 md:py-3 pl-1 align-middle  no-underline hover:text-gray-100 border-b-2 border-gray-900 hover:border-pink-400">
                   <FontAwesomeIcon
-                    icon={faFlag}
+                    icon={faGlobeAsia}
                     className="mr-3 text-pink-400"
                   />
                   <span className="pb-1 md:pb-0 text-sm">Indonesia</span>
@@ -106,7 +116,10 @@ export default () => {
                 href="#"
                 className="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-100 border-b-2 border-gray-900  hover:border-purple-400"
               >
-                <i className="fa fa-envelope fa-fw mr-3"></i>
+                <FontAwesomeIcon
+                  icon={faGlobeAmericas}
+                  className="mr-3 text-purple-400"
+                />
                 <span className="pb-1 md:pb-0 text-sm">Countries</span>
               </a>
             </li>
@@ -133,9 +146,6 @@ export default () => {
           </div>
         </div>
       </div>
-      <style jsx>{`
-        .selected: border-indigo-500;
-      `}</style>
     </nav>
   );
 };

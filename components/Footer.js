@@ -57,7 +57,7 @@ const Footer = () => (
                   rel="noopener noreferrer"
                 >
                   This non-profit site is made with{" "}
-                  <span className="text-red-700">
+                  <span className="text-red-600">
                     <FontAwesomeIcon icon={faHeart} />
                   </span>{" "}
                   by{" "}

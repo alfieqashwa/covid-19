@@ -28,7 +28,7 @@ export default () => {
     );
 
   return (
-    <div className="w-full p-3">
+    <div className="w-full mt-6 p-3">
       <div className="bg-gray-900 border border-gray-800 rounded shadow">
         {/* border-b border-gray-800 p-3 */}
         <table className="text-left w-full">
