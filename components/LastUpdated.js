@@ -18,7 +18,7 @@ function LastUpdated({ onClick }) {
         <div className="flex flex-row items-center">
           <div className="flex-shrink pr-4">
             <button onClick={onClick}>
-              <div className="rounded px-4 py-3 bg-indigo-700">
+              <div className="rounded px-4 py-3 bg-indigo-700 hover:bg-indigo-800">
                 <FontAwesomeIcon icon={faSyncAlt} size="2x" inverse spin />
               </div>
             </button>

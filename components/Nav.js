@@ -1,16 +1,11 @@
 import { useState } from "react";
-import Link from "next/link";
-import ActiveLink from "./ActiveLink";
+import Link from "./ActiveLink";
+import { useRouter } from "next/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faHome,
-  faChartArea,
-  faHeartbeat,
-  faSyncAlt,
-  faAllergies
-} from "@fortawesome/free-solid-svg-icons";
+import { faHome, faFlag, faAllergies } from "@fortawesome/free-solid-svg-icons";
 
 export default () => {
+  const router = useRouter();
   const [isToggle, setIsToggle] = useState(false);
 
   const onClick = () => {
@@ -72,25 +67,37 @@ export default () => {
           } lg:block mt-2 lg:mt-0 bg-gray-900 z-20`}
         >
           <ul className="list-reset lg:flex flex-1 items-center px-4 md:px-0">
-            <li className="mr-6 my-2 md:my-0">
-              <ActiveLink href="/">
-                <a className="block py-1 md:py-3 pl-1 align-middle text-blue-400 no-underline hover:text-gray-100 border-b-2 border-gray-900 hover:border-blue-400 active:border-blue-400">
+            <li
+              className={`mr-6 my-2 md:my-0 ${
+                router.pathname === "/"
+                  ? "text-gray-500 border-b-2 border-blue-400"
+                  : "text-gray-500"
+              }`}
+            >
+              <Link href="/">
+                <a className="block py-1 md:py-3 pl-1 align-middle no-underline hover:text-gray-100 border-b-2 border-gray-900 hover:border-blue-400">
                   <FontAwesomeIcon
                     icon={faHome}
                     className="mr-3 text-blue-400"
                   />
                   <span className="pb-1 md:pb-0 text-sm">Home</span>
                 </a>
-              </ActiveLink>
+              </Link>
             </li>
-            <li className="mr-6 my-2 md:my-0">
+            <li
+              className={`mr-6 my-2 md:my-0 ${
+                router.pathname === "/indonesia"
+                  ? " text-pink-400 border-b-2 border-pink-400"
+                  : "text-gray-500"
+              }`}
+            >
               <Link href="/indonesia">
-                <a className="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-100 border-b-2 border-gray-900 hover:border-pink-400 active:border-pink-400">
+                <a className="block py-1 md:py-3 pl-1 align-middle  no-underline hover:text-gray-100 border-b-2 border-gray-900 hover:border-pink-400">
                   <FontAwesomeIcon
-                    icon={faChartArea}
+                    icon={faFlag}
                     className="mr-3 text-pink-400"
                   />
-                  <span className="pb-1 md:pb-0 text-sm ">Indonesia</span>
+                  <span className="pb-1 md:pb-0 text-sm">Indonesia</span>
                 </a>
               </Link>
             </li>
@@ -100,16 +107,7 @@ export default () => {
                 className="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-100 border-b-2 border-gray-900  hover:border-purple-400"
               >
                 <i className="fa fa-envelope fa-fw mr-3"></i>
-                <span className="pb-1 md:pb-0 text-sm">Country</span>
-              </a>
-            </li>
-            <li className="mr-6 my-2 md:my-0">
-              <a
-                href="#"
-                className="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-100 border-b-2 border-gray-900  hover:border-green-400"
-              >
-                <i className="fas fa-chart-area fa-fw mr-3"></i>
-                <span className="pb-1 md:pb-0 text-sm">Analytics</span>
+                <span className="pb-1 md:pb-0 text-sm">Countries</span>
               </a>
             </li>
           </ul>
@@ -135,6 +133,9 @@ export default () => {
           </div>
         </div>
       </div>
+      <style jsx>{`
+        .selected: border-indigo-500;
+      `}</style>
     </nav>
   );
 };

@@ -9,7 +9,7 @@ import { BASE_URL } from "../utils/BaseUrl";
 
 const Timeline = () => {
   const [{ data, loading, error }, refetch] = useAxios(
-    `${BASE_URL}/historical/indonesia`
+    `${BASE_URL}/v2/historical/indonesia`
   );
 
   if (loading)
@@ -28,7 +28,7 @@ const Timeline = () => {
 
   const {
     standardizedCountryName,
-    timeline: { cases, deaths, recovered }
+    timeline: { cases, deaths }
   } = data;
   console.log(JSON.stringify(cases, null, 2));
   return (
@@ -57,21 +57,6 @@ const Timeline = () => {
             <ColumnChart
               data={[{ name: "Meninggal", data: deaths }]}
               colors={["#c53030"]}
-              xtitle="Tanggal"
-              ytitle="Jumlah"
-            />
-          </div>
-        </div>
-      </div>
-      <div className="w-full p-3">
-        <div className="bg-gray-900 border border-gray-800 rounded shadow">
-          <div className="border-b border-gray-800 p-3">
-            <h5 className="font-bold capitalize text-gray-600">Pulih</h5>
-          </div>
-          <div className="p-5">
-            <ColumnChart
-              data={[{ name: "Pulih", data: recovered }]}
-              colors={["#38a169"]}
               xtitle="Tanggal"
               ytitle="Jumlah"
             />
