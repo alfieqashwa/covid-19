@@ -32,9 +32,9 @@ export default () => {
                 icon={faAllergies}
                 size="2x"
                 pulse
-                className="text-blue-400 pr-3"
+                className="text-teal-500 pr-2"
               />
-              <span className="pl-2">Covid-19</span>
+              <span className="pl-2 text-gray-300">Covid-19</span>
             </a>
           </Link>
         </div>

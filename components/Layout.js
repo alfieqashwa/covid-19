@@ -27,7 +27,7 @@ export default ({ children }) => {
 
   return (
     <>
-      <div className="bg-black-alt font-sans leading-normal tracking-normal">
+      <body className="bg-black-alt font-sans leading-normal tracking-normal">
         <Nav />
         {/* Container */}
         <div className="container w-full mx-auto pt-20">
@@ -53,7 +53,7 @@ export default ({ children }) => {
           </div>
           <Footer />
         </div>
-      </div>
+      </body>
       <style jsx>
         {`
           .bg-black-alt {
