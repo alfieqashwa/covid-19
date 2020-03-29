@@ -119,7 +119,7 @@ export const Active = ({ content }) => (
       <div className="flex flex-row items-center">
         <div className="flex-shrink pr-4">
           <div className="rounded px-4 py-3 bg-purple-600">
-            <FontAwesomeIcon icon={faAllergies} spin size="2x" inverse />
+            <FontAwesomeIcon icon={faAllergies} size="2x" inverse />
           </div>
         </div>
         <div className="flex-1 text-right md:text-center">
