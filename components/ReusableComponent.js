@@ -1,14 +1,14 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faSyncAlt,
   faGlobeAmericas,
   faHospitalAlt,
   faProcedures,
   faHeartbeat,
   faAllergies,
-  faMedkit,
-  faAmbulance
+  faAmbulance,
+  faBook,
+  faArrowLeft
 } from "@fortawesome/free-solid-svg-icons";
 
 // Globe
@@ -209,3 +209,41 @@ export const Critical = ({ content }) => (
     </div>
   </div>
 );
+
+export const ReadOnline = () => (
+  <div className="w-full md:w-1/2 xl:w-1/3 p-3">
+    <div className="bg-gray-900 border border-gray-800 rounded shadow p-2">
+      <div className="flex flex-row items-center">
+        <a
+          href="https://www.alibabacloud.com/zh/universal-service/pdf_reader?spm=a3c0i.14138300.8102420620.dreadnow.cc76647f5DEr0S&cdnorigin=pdf-intl&pdf=Read%20Online-Handbook%20of%20COVID-19%20Prevention%20and%20Treatment-Indonesian.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex-shrink pr-4 focus:outline-none"
+        >
+          <div className="rounded px-4 py-3 bg-pink-600 hover:bg-pink-800">
+            <FontAwesomeIcon icon={faBook} size="2x" inverse />
+          </div>
+        </a>
+        <div className="flex-1 text-right md:text-center">
+          <h5 className="font-bold uppercase text-gray-400">Read Online</h5>
+          <div className="text-pink-600 font-semibold">
+            <FontAwesomeIcon icon={faArrowLeft} className="text-2xl mr-2" />
+            <span className="text-base sm:text-xl text-pink-600 font-bold tracking-widest">
+              Panduan COVID-19
+            </span>
+          </div>
+          <span className="text-green-500">
+            <i className="fas fa-caret-up" />
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+//   className="inline-block text-gray-600 no-underline hover:text-gray-100 hover:text-underline py-1"
+
+//
+//     Panduan COVID-19
+//   </span>
+// </a>

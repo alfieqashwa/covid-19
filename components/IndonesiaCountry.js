@@ -8,7 +8,8 @@ import {
   Active,
   TodayCases,
   TodayDeaths,
-  Critical
+  Critical,
+  ReadOnline
 } from "./ReusableComponent";
 
 import { CovidContext } from "../utils/Context";
@@ -30,7 +31,6 @@ export default () => {
     deaths,
     recovered,
     active,
-    critical,
     todayCases,
     todayDeaths
     // casesPerOneMillion
@@ -66,8 +66,7 @@ export default () => {
         <Active content={formatNum(active)} />
         <TodayCases content={formatNum(todayCases)} />
         <TodayDeaths content={formatNum(todayDeaths)} />
-        <Critical content={formatNum(critical)} />
-
+        <ReadOnline />
         {/* START Last Update */}
         <LastUpdated onClick={refetchID} />
       </div>
