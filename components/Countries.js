@@ -59,10 +59,10 @@ export default () => {
           <tbody className="bg-grey-900 flex w-full flex-col items-center justify-between overflow-y-auto p-1 md:p-3 h-64">
             {dataCountries.map((c, i) => (
               <tr
-                className="flex w-full my-4 px-1 border-b border-gray-800"
+                className="flex w-full mb-10 px-1 border-b border-gray-800"
                 key={i}
               >
-                <td className="flex items-center text-gray-600 w-1/5 pb-12 text-xs sm:text-base font-bold truncate">
+                <td className="flex text-gray-600 w-1/5 pb-12 text-xs sm:text-base font-bold truncate">
                   <ImageFlag src={c.countryInfo.flag} alt={c.country} />
                   {c.country}
                 </td>
@@ -92,7 +92,7 @@ function ImageFlag({ src, alt }) {
     <img
       src={src}
       alt={alt}
-      className="w-5 h-5 md:w-8 md:h-8 rounded-full border border-indigo-400 mr-1"
+      className="w-5 h-5 object-cover object-center md:w-8 md:h-8 rounded-full border-2 border-gray-700 mr-1 md:mr-2"
     />
   );
 }
