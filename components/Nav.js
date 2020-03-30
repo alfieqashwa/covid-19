@@ -32,9 +32,11 @@ export default () => {
                 icon={faAllergies}
                 size="2x"
                 pulse
-                className="text-teal-500 pr-2"
+                className="text-indigo-400 pr-2"
               />
-              <span className="pl-2 text-gray-300">Covid-19</span>
+              <span className="pl-2 uppercase tracking-widest focus:outline-none font-bold text-indigo-400">
+                Covid-19
+              </span>
             </a>
           </Link>
         </div>
@@ -46,7 +48,7 @@ export default () => {
                 className="flex items-center focus:outline-none mr-3"
               >
                 <MyImage />
-                <span className="hidden md:inline-block text-gray-400 font-bold">
+                <span className="hidden md:inline-block text-gray-500 font-bold">
                   In Memory of Dr. Li Wenliang
                 </span>
               </button>

@@ -27,7 +27,7 @@ function LastUpdated({ onClick }) {
           <div className="flex-1 text-right md:text-center">
             <h5 className="font-bold uppercase text-gray-400">Last Updated</h5>
 
-            <h3 className="font-bold text-2xl text-indigo-700">
+            <h3 className="font-bold text-3xl text-indigo-700">
               {lastUpdated}
             </h3>
           </div>
