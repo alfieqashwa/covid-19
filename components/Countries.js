@@ -42,36 +42,39 @@ export default () => {
                   Negara
                 </button>
               </th>
-              <th className="text-yellow-600 p-2 w-1/5  text-sm sm:text-base text-right">
+              <th className="text-yellow-600 py-2 w-1/5  text-sm sm:text-base text-right">
                 Kasus
               </th>
-              <th className="text-orange-500 p-2 w-1/5  text-sm sm:text-base text-right">
+              <th className="text-orange-500 py-2 w-1/5  text-sm sm:text-base text-right">
                 Kritis
               </th>
-              <th className="text-red-700 p-2 w-1/5  text-sm sm:text-base text-right">
+              <th className="text-red-700 py-2 w-1/5  text-sm sm:text-base text-right">
                 Wafat
               </th>
-              <th className="text-green-600 p-2 w-1/5  text-sm sm:text-base text-right">
+              <th className="text-green-600 py-2 p-1 w-1/5  text-sm sm:text-base text-right">
                 Pulih
               </th>
             </tr>
           </thead>
-          <tbody className="bg-grey-900 flex w-full flex-col items-center justify-between overflow-y-auto p-1 md:p-3">
+          <tbody className="bg-grey-900 flex w-full flex-col items-center justify-between overflow-y-auto p-1 md:p-3 h-64">
             {dataCountries.map((c, i) => (
-              <tr className="flex w-full" key={i}>
-                <td className="text-gray-600 px-1 py-2 w-1/5 text-xs sm:text-base font-bold">
+              <tr
+                className="flex w-full my-4 px-1 border-b border-gray-800"
+                key={i}
+              >
+                <td className="text-gray-600 w-1/5 pb-12 text-xs sm:text-base font-bold truncate">
                   {c.country}
                 </td>
-                <td className="text-yellow-600 p-2 text-xs w-1/5 sm:text-base text-right">
+                <td className="text-yellow-600 w-1/5 text-xs sm:text-base text-right">
                   {formatNum(c.cases)}
                 </td>
-                <td className="text-orange-500 p-2 text-xs w-1/5 sm:text-base text-right">
+                <td className="text-orange-500 w-1/5 text-xs sm:text-base text-right">
                   {formatNum(c.critical)}
                 </td>
-                <td className="text-red-700 p-2 w-1/5 text-xs sm:text-base text-right">
+                <td className="text-red-700 w-1/5 text-xs sm:text-base text-right">
                   {formatNum(c.deaths)}
                 </td>
-                <td className="text-green-600 p-2 text-xs w-1/5 text-right sm:text-base">
+                <td className="text-green-600 w-1/5 text-xs text-right sm:text-base">
                   {formatNum(c.recovered)}
                 </td>
               </tr>
