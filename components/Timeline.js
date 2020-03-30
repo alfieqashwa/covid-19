@@ -30,7 +30,6 @@ const Timeline = () => {
     standardizedCountryName,
     timeline: { cases, deaths }
   } = data;
-  console.log(JSON.stringify(cases, null, 2));
   return (
     <>
       <div className="w-full p-3 mb-6">

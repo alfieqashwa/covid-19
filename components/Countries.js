@@ -36,22 +36,22 @@ export default () => {
             <tr className="flex w-full">
               <th className="py-1 w-1/5 text-sm sm:text-base">
                 <button
-                  className="bg-gray-900 border border-gray-800 rounded shadow text-indigo-700 font-bold p-1 "
+                  className="bg-gray-900 border border-gray-800 rounded shadow text-indigo-700 font-bold p-1"
                   onClick={refetchCountries}
                 >
                   Negara
                 </button>
               </th>
-              <th className="text-yellow-600 py-2 w-1/5  text-sm sm:text-base text-right">
+              <th className="text-yellow-600 py-2 w-1/5 xl:px-1 text-sm sm:text-base text-right">
                 Kasus
               </th>
-              <th className="text-orange-500 py-2 w-1/5  text-sm sm:text-base text-right">
+              <th className="text-orange-500 py-2 w-1/5 xl:px-2  text-sm sm:text-base text-right">
                 Kritis
               </th>
-              <th className="text-red-700 py-2 w-1/5  text-sm sm:text-base text-right">
+              <th className="text-red-700 py-2 w-1/5 xl:px-3 text-sm sm:text-base text-right">
                 Wafat
               </th>
-              <th className="text-green-600 py-2 p-1 w-1/5  text-sm sm:text-base text-right">
+              <th className="text-green-600 py-2 px-1 xl:pr-4 w-1/5  text-sm sm:text-base text-right">
                 Pulih
               </th>
             </tr>
@@ -62,7 +62,8 @@ export default () => {
                 className="flex w-full my-4 px-1 border-b border-gray-800"
                 key={i}
               >
-                <td className="text-gray-600 w-1/5 pb-12 text-xs sm:text-base font-bold truncate">
+                <td className="flex items-center text-gray-600 w-1/5 pb-12 text-xs sm:text-base font-bold truncate">
+                  <ImageFlag src={c.countryInfo.flag} alt={c.country} />
                   {c.country}
                 </td>
                 <td className="text-yellow-600 w-1/5 text-xs sm:text-base text-right">
@@ -85,3 +86,13 @@ export default () => {
     </div>
   );
 };
+
+function ImageFlag({ src, alt }) {
+  return (
+    <img
+      src={src}
+      alt={alt}
+      className="w-5 h-5 md:w-8 md:h-8 rounded-full border border-indigo-400 mr-1"
+    />
+  );
+}

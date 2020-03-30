@@ -23,7 +23,7 @@ export default ({ children }) => {
   const [
     { data: dataCountries, loading: loadingCountries, error: errorCountries },
     refetchCountries
-  ] = myUseAxios("/countries");
+  ] = myUseAxios("/countries?sort=cases");
 
   return (
     <div className="bg-black-alt font-sans leading-normal tracking-normal">
