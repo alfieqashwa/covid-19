@@ -10,11 +10,6 @@ export const Loading = () => (
           <FontAwesomeIcon icon={faSyncAlt} size="6x" inverse spin />
         </center>
       </div>
-      <div className="flex-1 text-center md:text-center">
-        <h5 className="font-bold uppercase text-gray-100 text-2xl font-bold my-2">
-          Loading...
-        </h5>
-      </div>
     </center>
     <hr className="border-b-2 border-gray-600 my-12 mx-4" />
   </>

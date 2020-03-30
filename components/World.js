@@ -1,6 +1,7 @@
 import React, { useContext, Fragment } from "react";
 
 import { Globe, Cases, Deaths, Recovered, Active } from "./ReusableComponent";
+import TimelineWorld from "./TimelineWorld";
 
 import { CovidContext } from "../utils/Context";
 import { formatNum } from "../utils/formatNum";
@@ -40,6 +41,7 @@ export default () => {
         <DoughnutChart cases={cases} deaths={deaths} recovered={recovered} />
         {/* <LineChart /> */}
         <Countries />
+        <TimelineWorld />
       </div>
     </Fragment>
   );

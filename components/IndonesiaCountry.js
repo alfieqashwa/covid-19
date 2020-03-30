@@ -1,15 +1,7 @@
 import React, { useContext, Fragment } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGlobeAsia } from "@fortawesome/free-solid-svg-icons";
 import {
-  faGlobeAsia,
-  faHospitalAlt,
-  faProcedures,
-  faHeartbeat,
-  faAmbulance,
-  faMedkit
-} from "@fortawesome/free-solid-svg-icons";
-import {
-  Globe,
   Cases,
   Deaths,
   Recovered,
@@ -23,7 +15,7 @@ import { CovidContext } from "../utils/Context";
 import { formatNum } from "../utils/formatNum";
 import { Loading, Error } from "./LoadingError";
 import LastUpdated from "./LastUpdated";
-import Timeline from "./Timeline";
+import TimelineIndonesia from "./TimelineIndonesia";
 // import BarChart from "./BarChart";
 
 export default () => {
@@ -82,7 +74,7 @@ export default () => {
       <hr className="border-b-2 border-gray-600 my-8 mx-4" />
       <div className="flex flex-row flex-wrap flex-grow mt-2">
         {/* START GRAPH */}
-        <Timeline />
+        <TimelineIndonesia />
       </div>
       <hr className="border-b-2 border-gray-600 my-8 mx-4" />
     </Fragment>
