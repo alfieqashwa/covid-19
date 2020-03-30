@@ -157,7 +157,7 @@ function MyImage() {
     <img
       src="/drliwenliang.jpg"
       alt="Dr. Li Wenliang"
-      className="w-8 h-8 rounded-full border-2 border-pink-800 mr-4"
+      className="w-8 h-8 rounded-full border-2 border-pink-900 mr-4"
     />
   );
 }
