@@ -26,34 +26,32 @@ export default ({ children }) => {
   ] = myUseAxios("/countries");
 
   return (
-    <>
-      <body className="bg-black-alt font-sans leading-normal tracking-normal">
-        <Nav />
-        {/* Container */}
-        <div className="container w-full mx-auto pt-20">
-          <div className="w-full px-1 md:px-0 md:mt-8 mb-12 text-gray-800 leading-normal">
-            <CovidContext.Provider
-              value={{
-                dataAll,
-                loadingAll,
-                errorAll,
-                refetchAll,
-                dataID,
-                loadingID,
-                errorID,
-                refetchID,
-                dataCountries,
-                loadingCountries,
-                errorCountries,
-                refetchCountries
-              }}
-            >
-              {children}
-            </CovidContext.Provider>
-          </div>
-          <Footer />
+    <div className="bg-black-alt font-sans leading-normal tracking-normal">
+      <Nav />
+      {/* Container */}
+      <div className="container w-full mx-auto pt-20">
+        <div className="w-full px-1 md:px-0 md:mt-8 mb-12 text-gray-800 leading-normal">
+          <CovidContext.Provider
+            value={{
+              dataAll,
+              loadingAll,
+              errorAll,
+              refetchAll,
+              dataID,
+              loadingID,
+              errorID,
+              refetchID,
+              dataCountries,
+              loadingCountries,
+              errorCountries,
+              refetchCountries
+            }}
+          >
+            {children}
+          </CovidContext.Provider>
         </div>
-      </body>
+        <Footer />
+      </div>
       <style jsx>
         {`
           .bg-black-alt {
@@ -67,6 +65,6 @@ export default ({ children }) => {
           }
         `}
       </style>
-    </>
+    </div>
   );
 };
