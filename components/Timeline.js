@@ -47,3 +47,26 @@ export const DeathsTimeline = ({ onClick, data }) => (
     </div>
   </div>
 );
+
+export const RecoveredTimeline = ({ onClick, data }) => (
+  <div className="w-full p-3">
+    <div className="bg-gray-900 border border-gray-800 rounded shadow">
+      <div className="border-b border-gray-800 p-4">
+        <button
+          className="text-xs ms:text-base font-bold capitalize border border-green-700 rounded shadow text-green-600 px-2 py-1 hover:border-green-600 hover:text-green-500"
+          onClick={onClick}
+        >
+          pulih
+        </button>
+      </div>
+      <div className="p-5">
+        <ColumnChart
+          data={data}
+          colors={["#38a169"]}
+          xtitle="Tanggal"
+          ytitle="Jumlah"
+        />
+      </div>
+    </div>
+  </div>
+);

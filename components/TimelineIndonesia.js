@@ -5,14 +5,14 @@ import { faSyncAlt, faAllergies } from "@fortawesome/free-solid-svg-icons";
 import { CovidContext } from "../utils/Context";
 
 import { Loading, Error } from "./LoadingError";
-import { CasesTimeline, DeathsTimeline } from "./Timeline";
+import { CasesTimeline, DeathsTimeline, RecoveredTimeline } from "./Timeline";
 
 export default function TimelineIndonesia() {
   const {
     dataHistoricalID: data,
     loadingHistoricalID: loading,
     errorHistoricalID: error,
-    refetchHistoriclaID: refetch
+    refetchHistoriclaID: refetch,
   } = useContext(CovidContext);
 
   if (loading)
@@ -30,8 +30,8 @@ export default function TimelineIndonesia() {
     );
 
   const {
-    standardizedCountryName,
-    timeline: { cases, deaths }
+    // standardizedCountryName,
+    timeline: { cases, deaths, recovered },
   } = data;
   return (
     <Fragment>
@@ -42,6 +42,10 @@ export default function TimelineIndonesia() {
       <DeathsTimeline
         onClick={refetch}
         data={[{ name: "Meninggal", data: deaths }]}
+      />
+      <RecoveredTimeline
+        onClick={refetch}
+        data={[{ name: "Pulih", data: recovered }]}
       />
     </Fragment>
   );
