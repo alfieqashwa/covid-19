@@ -56,7 +56,7 @@ export default () => {
               </th>
             </tr>
           </thead>
-          <tbody className="bg-grey-900 flex w-full flex-col items-center justify-between overflow-y-auto p-1 md:p-3 h-64">
+          <tbody className="bg-grey-900 flex w-full flex-col items-center justify-between overflow-y-scroll scrolling-touch p-1 md:p-3 h-64">
             {dataCountries.map((c, i) => (
               <tr
                 className="flex w-full mb-10 px-1 border-b border-gray-800"
