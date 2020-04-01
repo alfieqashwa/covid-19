@@ -8,7 +8,7 @@ import {
   Active,
   TodayCases,
   TodayDeaths,
-  Critical,
+  // Critical,
   ReadOnline
 } from "./ReusableComponent";
 
@@ -17,7 +17,6 @@ import { formatNum } from "../utils/formatNum";
 import { Loading, Error } from "./LoadingError";
 import LastUpdated from "./LastUpdated";
 import TimelineIndonesia from "./TimelineIndonesia";
-// import BarChart from "./BarChart";
 
 export default () => {
   const { dataID, loadingID, errorID, refetchID } = useContext(CovidContext);

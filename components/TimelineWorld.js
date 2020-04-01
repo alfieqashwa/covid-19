@@ -1,15 +1,18 @@
-import React, { Fragment } from "react";
-import useAxios from "axios-hooks";
+import React, { Fragment, useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSyncAlt, faAllergies } from "@fortawesome/free-solid-svg-icons";
 import { Loading, Error } from "./LoadingError";
-import { BASE_URL } from "../utils/BaseUrl";
+
+import { CovidContext } from "../utils/Context";
 import { CasesTimeline, DeathsTimeline } from "./Timeline";
 
 const TimelineWorld = () => {
-  const [{ data, loading, error }, refetch] = useAxios(
-    `${BASE_URL}/v2/historical/all`
-  );
+  const {
+    dataHistoricalAll: data,
+    loadingHistoricalAll: loading,
+    errorHistoricalAll: error,
+    refetchHistoricalAll: refetch
+  } = useContext(CovidContext);
 
   if (loading)
     return (

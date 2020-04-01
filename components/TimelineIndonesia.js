@@ -1,15 +1,19 @@
-import React, { Fragment } from "react";
-import useAxios from "axios-hooks";
+import React, { Fragment, useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSyncAlt, faAllergies } from "@fortawesome/free-solid-svg-icons";
+
+import { CovidContext } from "../utils/Context";
+
 import { Loading, Error } from "./LoadingError";
 import { CasesTimeline, DeathsTimeline } from "./Timeline";
-import { BASE_URL } from "../utils/BaseUrl";
 
 export default function TimelineIndonesia() {
-  const [{ data, loading, error }, refetch] = useAxios(
-    `${BASE_URL}/v2/historical/indonesia`
-  );
+  const {
+    dataHistoricalID: data,
+    loadingHistoricalID: loading,
+    errorHistoricalID: error,
+    refetchHistoriclaID: refetch
+  } = useContext(CovidContext);
 
   if (loading)
     return (

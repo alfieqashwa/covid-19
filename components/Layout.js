@@ -21,6 +21,22 @@ export default ({ children }) => {
     refetchID
   ] = myUseAxios("/countries/indonesia");
   const [
+    {
+      data: dataHistoricalAll,
+      loading: loadingHistoricalAll,
+      error: errorHistoricalAll
+    },
+    refetchHistoricalAll
+  ] = myUseAxios("/v2/historical/all");
+  const [
+    {
+      data: dataHistoricalID,
+      loading: loadingHistoricalID,
+      error: errorHistoricalID
+    },
+    refetchHistoricalID
+  ] = myUseAxios("/v2/historical/indonesia");
+  const [
     { data: dataCountries, loading: loadingCountries, error: errorCountries },
     refetchCountries
   ] = myUseAxios("/countries?sort=cases");
@@ -41,6 +57,14 @@ export default ({ children }) => {
               loadingID,
               errorID,
               refetchID,
+              dataHistoricalAll,
+              loadingHistoricalAll,
+              errorHistoricalAll,
+              refetchHistoricalAll,
+              dataHistoricalID,
+              loadingHistoricalID,
+              errorHistoricalID,
+              refetchHistoricalID,
               dataCountries,
               loadingCountries,
               errorCountries,

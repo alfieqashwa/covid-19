@@ -225,9 +225,14 @@ export const ReadOnline = () => (
           </div>
         </a>
         <div className="flex-1 text-right md:text-center">
-          <h5 className="font-bold uppercase text-gray-400">Read Online</h5>
+          <h5 className="font-bold uppercase text-gray-400">
+            <FontAwesomeIcon
+              icon={faArrowLeft}
+              className="text-pink-600 text-xl mr-3"
+            />
+            <span>Read Online</span>
+          </h5>
           <div className="text-pink-600 font-semibold">
-            <FontAwesomeIcon icon={faArrowLeft} className="text-2xl mr-2" />
             <span className="text-base sm:text-xl text-pink-600 font-bold tracking-widest">
               Panduan COVID-19
             </span>
