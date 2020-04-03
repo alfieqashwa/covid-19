@@ -11,15 +11,15 @@ import {
   faHome,
   faGlobeAsia,
   faGlobeAmericas,
-  faAllergies
+  faAllergies,
 } from "@fortawesome/free-solid-svg-icons";
 
-export default () => {
+export default function Nav() {
   const router = useRouter();
   const [isToggle, setIsToggle] = useState(false);
 
   const onClick = () => {
-    setIsToggle(t => !t);
+    setIsToggle((t) => !t);
   };
 
   return (
@@ -150,7 +150,7 @@ export default () => {
       </div>
     </nav>
   );
-};
+}
 
 function MyImage() {
   return (

@@ -1,10 +1,10 @@
 import Layout from "../components/Layout";
-import Indonesia from "../components/IndonesiaCountry";
+import IndonesiaCountry from "../components/IndonesiaCountry";
 
-export default () => {
-  return (
-    <Layout>
-      <Indonesia />
-    </Layout>
-  );
-};
+const Indonesia = () => (
+  <Layout>
+    <IndonesiaCountry />
+  </Layout>
+);
+
+export default Indonesia;

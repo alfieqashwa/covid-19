@@ -9,7 +9,7 @@ import {
   TodayCases,
   TodayDeaths,
   // Critical,
-  ReadOnline
+  ReadOnline,
 } from "./ReusableComponent";
 
 import { CovidContext } from "../utils/Context";
@@ -18,11 +18,16 @@ import { Loading, Error } from "./LoadingError";
 import LastUpdated from "./LastUpdated";
 import TimelineIndonesia from "./TimelineIndonesia";
 
-export default () => {
-  const { dataID, loadingID, errorID, refetchID } = useContext(CovidContext);
+export default function IndonesiaCountry() {
+  const {
+    dataID: data,
+    loadingID: loading,
+    errorID: error,
+    refetchID: refetch,
+  } = useContext(CovidContext);
 
-  if (loadingID) return <Loading />;
-  if (errorID) return <Error />;
+  if (loading) return <Loading />;
+  if (error) return <Error />;
 
   const {
     country,
@@ -31,9 +36,9 @@ export default () => {
     recovered,
     active,
     todayCases,
-    todayDeaths
+    todayDeaths,
     // casesPerOneMillion
-  } = dataID;
+  } = data;
 
   return (
     <Fragment>
@@ -67,9 +72,9 @@ export default () => {
         <TodayDeaths content={formatNum(todayDeaths)} />
         <ReadOnline />
         {/* START Last Update */}
-        <LastUpdated onClick={refetchID} />
+        <LastUpdated onClick={refetch} />
       </div>
-      <hr className="border-b-2 border-gray-600 my-8 mx-4" />
+      <hr className="border-b-2 border-gray-600 mt-8 mx-4" />
       <div className="flex flex-row flex-wrap flex-grow mt-2">
         {/* START GRAPH */}
         <TimelineIndonesia />
@@ -77,4 +82,4 @@ export default () => {
       <hr className="border-b-2 border-gray-600 my-8 mx-4" />
     </Fragment>
   );
-};
+}

@@ -5,22 +5,24 @@ import { CovidContext } from "../utils/Context";
 import { formatNum } from "../utils/formatNum";
 import { Loading, Error } from "./LoadingError";
 
-export default () => {
+export default function ListCountries() {
   const {
-    dataCountries,
-    loadingCountries,
-    errorCountries,
-    refetchCountries
+    query,
+    setQuery,
+    dataCountries: data,
+    loadingCountries: loading,
+    errorCountries: error,
+    refetchCountries: refetch,
   } = useContext(CovidContext);
 
-  if (loadingCountries)
+  if (loading)
     return (
       <Loading>
         <FontAwesomeIcon icon={faSyncAlt} size="6x" inverse spin />
       </Loading>
     );
 
-  if (errorCountries)
+  if (error)
     return (
       <Error text="Error !!">
         <FontAwesomeIcon icon={faAllergies} size="6x" inverse spin />
@@ -37,7 +39,7 @@ export default () => {
               <th className="py-1 w-1/5 text-sm sm:text-base">
                 <button
                   className="bg-gray-900 border border-gray-800 rounded shadow text-indigo-700 font-bold px-2 py-1 hover:border-gray-600 hover:text-indigo-500"
-                  onClick={refetchCountries}
+                  onClick={refetch}
                 >
                   Negara
                 </button>
@@ -57,7 +59,7 @@ export default () => {
             </tr>
           </thead>
           <tbody className="bg-grey-900 flex w-full flex-col items-center justify-between overflow-y-scroll scrolling-touch p-1 md:p-3 h-64">
-            {dataCountries.map((c, i) => (
+            {data.map((c, i) => (
               <tr
                 className="flex w-full mb-10 px-1 border-b border-gray-800"
                 key={i}
@@ -85,14 +87,12 @@ export default () => {
       </div>
     </div>
   );
-};
-
-function ImageFlag({ src, alt }) {
-  return (
-    <img
-      src={src}
-      alt={alt}
-      className="w-5 h-5 object-cover object-center md:w-8 md:h-8 rounded-full border-2 border-gray-700 mr-1 md:mr-2"
-    />
-  );
 }
+
+const ImageFlag = ({ src, alt }) => (
+  <img
+    src={src}
+    alt={alt}
+    className="w-5 h-5 object-cover object-center md:w-8 md:h-8 rounded-full border-2 border-gray-700 mr-1 md:mr-2"
+  />
+);

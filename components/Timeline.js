@@ -3,11 +3,11 @@ import { ColumnChart, AreaChart } from "react-chartkick";
 import "chart.js";
 
 export const CasesTimeline = ({ onClick, data }) => (
-  <div className="w-full p-3 mb-6">
+  <div className="w-full p-3 my-6">
     <div className="bg-gray-900 border border-gray-800 rounded shadow">
       <div className="border-b border-gray-800 p-4">
         <button
-          className="text-xs ms:text-base font-bold capitalize border border-yellow-700 rounded shadow text-yellow-600 px-2 py-1 hover:border-yellow-500 hover:text-yellow-500"
+          className="text-xs tracking-widest ms:text-base font-bold capitalize border border-yellow-700 rounded shadow text-yellow-600 px-2 py-1 hover:border-yellow-500 hover:text-yellow-500"
           onClick={onClick}
         >
           Kasus
@@ -26,11 +26,11 @@ export const CasesTimeline = ({ onClick, data }) => (
 );
 
 export const DeathsTimeline = ({ onClick, data }) => (
-  <div className="w-full p-3">
+  <div className="w-full p-3 mb-6">
     <div className="bg-gray-900 border border-gray-800 rounded shadow">
       <div className="border-b border-gray-800 p-4">
         <button
-          className="text-xs ms:text-base font-bold capitalize border border-red-700 rounded shadow text-red-600 px-2 py-1 hover:border-red-500 hover:text-red-500"
+          className="text-xs tracking-widest ms:text-base font-bold capitalize border border-red-700 rounded shadow text-red-600 px-2 py-1 hover:border-red-500 hover:text-red-500"
           onClick={onClick}
         >
           meninggal
@@ -53,7 +53,7 @@ export const RecoveredTimeline = ({ onClick, data }) => (
     <div className="bg-gray-900 border border-gray-800 rounded shadow">
       <div className="border-b border-gray-800 p-4">
         <button
-          className="text-xs ms:text-base font-bold capitalize border border-green-700 rounded shadow text-green-600 px-2 py-1 hover:border-green-600 hover:text-green-500"
+          className="text-xs tracking-widest ms:text-base font-bold capitalize border border-green-700 rounded shadow text-green-600 px-2 py-1 hover:border-green-600 hover:text-green-500"
           onClick={onClick}
         >
           pulih

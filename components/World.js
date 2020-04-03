@@ -12,7 +12,7 @@ import LineChart from "./LineChart";
 import Countries from "./Countries";
 import { Loading, Error } from "./LoadingError";
 
-export default () => {
+export default function World() {
   const { dataAll, loadingAll, errorAll, refetchAll } = useContext(
     CovidContext
   );
@@ -46,4 +46,4 @@ export default () => {
       <hr className="border-b-2 border-gray-600 my-8 mx-4" />
     </Fragment>
   );
-};
+}

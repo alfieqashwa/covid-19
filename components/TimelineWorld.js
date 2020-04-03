@@ -4,14 +4,14 @@ import { faSyncAlt, faAllergies } from "@fortawesome/free-solid-svg-icons";
 import { Loading, Error } from "./LoadingError";
 
 import { CovidContext } from "../utils/Context";
-import { CasesTimeline, DeathsTimeline } from "./Timeline";
+import { CasesTimeline, DeathsTimeline, RecoveredTimeline } from "./Timeline";
 
-const TimelineWorld = () => {
+export default function TimelineWorld() {
   const {
     dataHistoricalAll: data,
     loadingHistoricalAll: loading,
     errorHistoricalAll: error,
-    refetchHistoricalAll: refetch
+    refetchHistoricalAll: refetch,
   } = useContext(CovidContext);
 
   if (loading)
@@ -28,7 +28,7 @@ const TimelineWorld = () => {
       </Error>
     );
 
-  const { cases, deaths } = data;
+  const { cases, deaths, recovered } = data;
   return (
     <Fragment>
       <CasesTimeline
@@ -39,8 +39,10 @@ const TimelineWorld = () => {
         onClick={refetch}
         data={[{ name: "Meninggal", data: deaths }]}
       />
+      <RecoveredTimeline
+        onClick={refetch}
+        data={[{ name: "Pulih", data: recovered }]}
+      />
     </Fragment>
   );
-};
-
-export default TimelineWorld;
+}

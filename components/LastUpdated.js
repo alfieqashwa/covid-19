@@ -2,15 +2,12 @@ import React, { useContext } from "react";
 import moment from "moment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSyncAlt } from "@fortawesome/free-solid-svg-icons";
-
 import { CovidContext } from "../utils/Context";
 
-function LastUpdated({ onClick }) {
+export default function LastUpdated({ onClick }) {
   const { dataAll } = useContext(CovidContext);
   const { updated } = dataAll;
-  const lastUpdated = moment(updated)
-    .startOf("hour")
-    .fromNow();
+  const lastUpdated = moment(updated).startOf("hour").fromNow();
 
   return (
     <div className="w-full md:w-1/2 xl:w-1/3 p-3">
@@ -36,5 +33,3 @@ function LastUpdated({ onClick }) {
     </div>
   );
 }
-
-export default LastUpdated;

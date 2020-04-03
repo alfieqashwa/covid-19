@@ -1,7 +1,7 @@
 import React from "react";
 import { Doughnut } from "react-chartjs-2";
 
-function DoughnutChart({ cases, deaths, recovered }) {
+export default function DoughnutChart({ cases, deaths, recovered }) {
   const active = cases - (deaths + recovered);
   return (
     // <div className="w-full md:w-1/2 xl:w-1/3 p-3">
@@ -23,10 +23,10 @@ function DoughnutChart({ cases, deaths, recovered }) {
                     "#d69e2e",
                     "#c53030",
                     "#38a169",
-                    "#805ad5"
-                  ]
-                }
-              ]
+                    "#805ad5",
+                  ],
+                },
+              ],
             }}
           />
         </div>
@@ -35,5 +35,3 @@ function DoughnutChart({ cases, deaths, recovered }) {
     </div>
   );
 }
-
-export default DoughnutChart;

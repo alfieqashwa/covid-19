@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { makeUseAxios } from "axios-hooks";
 
@@ -7,39 +7,45 @@ import { CovidContext } from "../utils/Context";
 import Nav from "./Nav";
 import Footer from "./Footer";
 
-const myUseAxios = makeUseAxios({
-  axios: axios.create({ baseURL: BASE_URL })
+const useAxios = makeUseAxios({
+  axios: axios.create({ baseURL: BASE_URL }),
 });
 
-export default ({ children }) => {
+export default function Layout({ children }) {
+  const [query, setQuery] = useState("cases");
+
   const [
     { data: dataAll, loading: loadingAll, error: errorAll },
-    refetchAll
-  ] = myUseAxios("/all");
-  const [
-    { data: dataID, loading: loadingID, error: errorID },
-    refetchID
-  ] = myUseAxios("/countries/indonesia");
+    refetchAll,
+  ] = useAxios("/all");
+
   const [
     {
       data: dataHistoricalAll,
       loading: loadingHistoricalAll,
-      error: errorHistoricalAll
+      error: errorHistoricalAll,
     },
-    refetchHistoricalAll
-  ] = myUseAxios("/v2/historical/all");
+    refetchHistoricalAll,
+  ] = useAxios("/v2/historical/all");
+
+  const [
+    { data: dataID, loading: loadingID, error: errorID },
+    refetchID,
+  ] = useAxios("/countries/indonesia");
+
   const [
     {
       data: dataHistoricalID,
       loading: loadingHistoricalID,
-      error: errorHistoricalID
+      error: errorHistoricalID,
     },
-    refetchHistoricalID
-  ] = myUseAxios("/v2/historical/indonesia");
+    refetchHistoricalID,
+  ] = useAxios("/v2/historical/indonesia");
+
   const [
     { data: dataCountries, loading: loadingCountries, error: errorCountries },
-    refetchCountries
-  ] = myUseAxios("/countries?sort=cases");
+    refetchCountries,
+  ] = useAxios(`/countries?sort=${query}`);
 
   return (
     <div className="bg-black-alt font-sans leading-normal tracking-normal">
@@ -54,13 +60,13 @@ export default ({ children }) => {
               errorAll,
               refetchAll,
               dataID,
-              loadingID,
-              errorID,
-              refetchID,
               dataHistoricalAll,
               loadingHistoricalAll,
               errorHistoricalAll,
               refetchHistoricalAll,
+              loadingID,
+              errorID,
+              refetchID,
               dataHistoricalID,
               loadingHistoricalID,
               errorHistoricalID,
@@ -68,7 +74,9 @@ export default ({ children }) => {
               dataCountries,
               loadingCountries,
               errorCountries,
-              refetchCountries
+              refetchCountries,
+              query,
+              setQuery,
             }}
           >
             {children}
@@ -91,4 +99,4 @@ export default ({ children }) => {
       </style>
     </div>
   );
-};
+}

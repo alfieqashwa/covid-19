@@ -2,8 +2,10 @@ import React from "react";
 import Layout from "../components/Layout";
 import World from "../components/World";
 
-export default () => (
+const Home = () => (
   <Layout>
     <World />
   </Layout>
 );
+
+export default Home;
