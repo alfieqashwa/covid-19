@@ -7,20 +7,21 @@ import { CovidContext } from "../utils/Context";
 import { formatNum } from "../utils/formatNum";
 import LastUpdated from "./LastUpdated";
 import DoughnutChart from "./DoughnutChart";
-import BarChart from "./BarChart";
-import LineChart from "./LineChart";
-import Countries from "./Countries";
+import ListCountries from "./ListCountries";
 import { Loading, Error } from "./LoadingError";
 
 export default function World() {
-  const { dataAll, loadingAll, errorAll, refetchAll } = useContext(
-    CovidContext
-  );
+  const {
+    dataAll: data,
+    loadingAll: loading,
+    errorAll: error,
+    refetchAll: refetch
+  } = useContext(CovidContext);
 
-  if (loadingAll) return <Loading />;
-  if (errorAll) return <Error />;
+  if (loading) return <Loading />;
+  if (error) return <Error />;
 
-  const { cases, deaths, recovered } = dataAll;
+  const { cases, deaths, recovered } = data;
   const active = cases - (deaths + recovered);
 
   return (
@@ -32,7 +33,7 @@ export default function World() {
         <Recovered title="Total Pulih" content={formatNum(recovered)} />
         <Active title="Terinfeksi" content={formatNum(active)} />
         {/* START LAST UPDATED */}
-        <LastUpdated onClick={refetchAll} />
+        <LastUpdated onClick={refetch} />
       </div>
       <hr className="border-b-2 border-gray-600 my-8 mx-4" />
       <div className="flex flex-row flex-wrap flex-grow mt-2">
@@ -40,7 +41,7 @@ export default function World() {
         {/* <BarChart /> */}
         <DoughnutChart cases={cases} deaths={deaths} recovered={recovered} />
         {/* <LineChart /> */}
-        <Countries />
+        <ListCountries />
         <TimelineWorld />
       </div>
       <hr className="border-b-2 border-gray-600 my-8 mx-4" />

@@ -4,14 +4,14 @@
 */
 
 import { useState } from "react";
-import Link from "./ActiveLink";
+import ActiveLink from "./ActiveLink";
 import { useRouter } from "next/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHome,
   faGlobeAsia,
   faGlobeAmericas,
-  faAllergies,
+  faAllergies
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function Nav() {
@@ -19,14 +19,14 @@ export default function Nav() {
   const [isToggle, setIsToggle] = useState(false);
 
   const onClick = () => {
-    setIsToggle((t) => !t);
+    setIsToggle(t => !t);
   };
 
   return (
     <nav id="header" className="bg-gray-900 fixed w-full z-10 top-0 shadow">
       <div className="w-full container mx-auto flex flex-wrap items-center mt-0 pt-3 pb-3 md:pb-2">
         <div className="w-1/2 pl-2 md:pl-0">
-          <Link href="/">
+          <ActiveLink href="/">
             <a className="text-gray-100 pl-2 text-base xl:text-xl no-underline hover:no-underline font-bold">
               <FontAwesomeIcon
                 icon={faAllergies}
@@ -38,7 +38,7 @@ export default function Nav() {
                 Covid-19
               </span>
             </a>
-          </Link>
+          </ActiveLink>
         </div>
         <div className="w-1/2 pr-0">
           <div className="flex relative inline-block float-right">
@@ -47,13 +47,12 @@ export default function Nav() {
                 type="button"
                 className="flex items-center focus:outline-none mr-3"
               >
-                <MyImage />
+                <DrLiWenliang />
                 <span className="hidden md:inline-block text-gray-500 font-bold">
                   In Memory of Dr. Li Wenliang
                 </span>
               </button>
             </div>
-
             <div className="block lg:hidden pr-4">
               <button
                 type="button"
@@ -86,7 +85,7 @@ export default function Nav() {
                   : "text-gray-500"
               }`}
             >
-              <Link href="/">
+              <ActiveLink href="/">
                 <a className="block py-1 md:py-3 pl-1 align-middle no-underline hover:text-gray-100 border-b-2 border-gray-900 hover:border-blue-400">
                   <FontAwesomeIcon
                     icon={faHome}
@@ -94,7 +93,7 @@ export default function Nav() {
                   />
                   <span className="pb-1 md:pb-0 text-sm">Home</span>
                 </a>
-              </Link>
+              </ActiveLink>
             </li>
             <li
               className={`mr-6 my-2 md:my-0 ${
@@ -103,27 +102,32 @@ export default function Nav() {
                   : "text-gray-500"
               }`}
             >
-              <Link href="/indonesia">
-                <a className="block py-1 md:py-3 pl-1 align-middle  no-underline hover:text-gray-100 border-b-2 border-gray-900 hover:border-pink-400">
+              <ActiveLink href="/indonesia">
+                <a className="block py-1 md:py-3 pl-1 align-middle no-underline hover:text-gray-100 border-b-2 border-gray-900 hover:border-pink-400">
                   <FontAwesomeIcon
                     icon={faGlobeAsia}
                     className="mr-3 text-pink-400"
                   />
                   <span className="pb-1 md:pb-0 text-sm">Indonesia</span>
                 </a>
-              </Link>
+              </ActiveLink>
             </li>
-            <li className="mr-6 my-2 md:my-0">
-              <a
-                href="#"
-                className="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-100 border-b-2 border-gray-900  hover:border-purple-400"
-              >
-                <FontAwesomeIcon
-                  icon={faGlobeAmericas}
-                  className="mr-3 text-purple-400"
-                />
-                <span className="pb-1 md:pb-0 text-sm">Countries</span>
-              </a>
+            <li
+              className={`mr-6 my-2 md:my-0 ${
+                router.pathname === "/countries"
+                  ? " text-purple-400 border-b-2 border-purple-400"
+                  : "text-gray-500"
+              }`}
+            >
+              <ActiveLink href="/countries">
+                <a className="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-100 border-b-2 border-gray-900  hover:border-purple-400">
+                  <FontAwesomeIcon
+                    icon={faGlobeAmericas}
+                    className="mr-3 text-purple-400"
+                  />
+                  <span className="pb-1 md:pb-0 text-sm">Countries</span>
+                </a>
+              </ActiveLink>
             </li>
           </ul>
 
@@ -152,7 +156,7 @@ export default function Nav() {
   );
 }
 
-function MyImage() {
+function DrLiWenliang() {
   return (
     <img
       src="/drliwenliang.jpg"

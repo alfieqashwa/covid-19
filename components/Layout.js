@@ -45,7 +45,12 @@ export default function Layout({ children }) {
   const [
     { data: dataCountries, loading: loadingCountries, error: errorCountries },
     refetchCountries
-  ] = useAxios(`/countries?sort=${query}`);
+  ] = useAxios("/countries?sort=cases");
+
+  const [
+    { data: dataCountry, loading: loadingCountry, error: errorCountry },
+    refetchCountry
+  ] = useAxios(`/countries/${query}`);
 
   return (
     <div className="bg-black-alt font-sans leading-normal tracking-normal">
@@ -72,7 +77,11 @@ export default function Layout({ children }) {
           errorCountries,
           refetchCountries,
           query,
-          setQuery
+          setQuery,
+          dataCountry,
+          loadingCountry,
+          errorCountry,
+          refetchCountry
         }}
       >
         <Nav />
