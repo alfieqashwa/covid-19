@@ -12,7 +12,7 @@ export default function ListCountries() {
     dataCountries: data,
     loadingCountries: loading,
     errorCountries: error,
-    refetchCountries: refetch,
+    refetchCountries: refetch
   } = useContext(CovidContext);
 
   if (loading)
@@ -58,7 +58,7 @@ export default function ListCountries() {
               </th>
             </tr>
           </thead>
-          <tbody className="bg-grey-900 flex w-full flex-col items-center justify-between overflow-y-scroll scrolling-touch p-1 md:p-3 h-64">
+          <tbody className="bg-grey-900 flex w-full flex-col items-center justify-between overflow-y-scroll scrolling-touch p-1 md:p-3 h-72">
             {data.map((c, i) => (
               <tr
                 className="flex w-full mb-10 px-1 border-b border-gray-800"
