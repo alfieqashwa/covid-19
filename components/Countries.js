@@ -1,85 +1,71 @@
-import React, { useContext, Fragment } from "react";
+import React, { Fragment, useContext, useState } from "react";
+import Select from "react-select";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGlobeAsia } from "@fortawesome/free-solid-svg-icons";
-import {
-  Cases,
-  Deaths,
-  Recovered,
-  Active,
-  TodayCases,
-  TodayDeaths,
-  // Critical,
-  ReadOnline
-} from "./ReusableComponent";
+import { faSyncAlt, faAllergies } from "@fortawesome/free-solid-svg-icons";
 
 import { CovidContext } from "../utils/Context";
-import { formatNum } from "../utils/formatNum";
+
 import { Loading, Error } from "./LoadingError";
-import LastUpdated from "./LastUpdated";
-import TimelineIndonesia from "./TimelineIndonesia";
+import { CasesTimeline, DeathsTimeline, RecoveredTimeline } from "./Timeline";
+import { colourOptions, countriesOptions } from "../utils/data";
 
 export default function Countries() {
+  const [value, setValue] = useState([]);
   const {
-    dataID: data,
-    loadingID: loading,
-    errorID: error,
-    refetchID: refetch
+    queries,
+    setQueries,
+    dataHistoricalCountry: data,
+    loadingHistoricalCountry: loading,
+    errorHistoricalCountry: error,
+    refetchHistoriclaCountry: refetch,
   } = useContext(CovidContext);
 
-  if (loading) return <Loading />;
-  if (error) return <Error />;
+  if (loading)
+    return (
+      <Loading text="Loading...">
+        <FontAwesomeIcon icon={faSyncAlt} size="6x" inverse spin />
+      </Loading>
+    );
+
+  if (error)
+    return (
+      <Error text="Error !!">
+        <FontAwesomeIcon icon={faAllergies} size="6x" inverse spin />
+      </Error>
+    );
 
   const {
-    country,
-    cases,
-    deaths,
-    recovered,
-    active,
-    todayCases,
-    todayDeaths
-    // casesPerOneMillion
+    // standardizedCountryName,
+    timeline: { cases, deaths, recovered },
   } = data;
 
+  const onChange = selectedOptions => {
+    const value = selectedOptions.map(x => x.value);
+    setValue(selectedOptions);
+  };
+
+  console.log(JSON.stringify(value, null, 2));
   return (
     <Fragment>
-      <div className="flex flex-wrap">
-        <div className="w-full md:w-1/2 xl:w-1/3 p-3">
-          <div className="bg-gray-900 border border-gray-800 rounded shadow p-2">
-            <div className="flex flex-row items-center">
-              <div className="flex-shrink pr-4">
-                <div className="rounded px-4 py-3 bg-teal-600">
-                  <FontAwesomeIcon icon={faGlobeAsia} size="2x" inverse spin />
-                </div>
-              </div>
-              <div className="flex-1 text-right md:text-center">
-                <h5 className="font-bold uppercase text-gray-400">Negara</h5>
-                <h3 className="font-bold text-3xl uppercase text-teal-600">
-                  {country}
-                  <span className="text-green-500">
-                    <i className="fas fa-caret-up" />
-                  </span>
-                </h3>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <Cases content={formatNum(cases)} />
-        <Deaths content={formatNum(deaths)} />
-        <Recovered content={formatNum(recovered)} />
-        <Active content={formatNum(active)} />
-        <TodayCases content={formatNum(todayCases)} />
-        <TodayDeaths content={formatNum(todayDeaths)} />
-        <ReadOnline />
-        {/* START Last Update */}
-        <LastUpdated onClick={refetch} />
-      </div>
-      <hr className="border-b-2 border-gray-600 mt-8 mx-4" />
-      <div className="flex flex-row flex-wrap flex-grow mt-2">
-        {/* START GRAPH */}
-        <TimelineIndonesia />
-      </div>
-      <hr className="border-b-2 border-gray-600 my-8 mx-4" />
+      <Select
+        closeMenuOnSelect={false}
+        defaultValue={countriesOptions[0]}
+        options={countriesOptions}
+        isMulti
+        onChange={onChange}
+      />
+      <CasesTimeline
+        onClick={refetch}
+        data={[{ name: "Kasus", data: cases }]}
+      />
+      <DeathsTimeline
+        onClick={refetch}
+        data={[{ name: "Meninggal", data: deaths }]}
+      />
+      <RecoveredTimeline
+        onClick={refetch}
+        data={[{ name: "Pulih", data: recovered }]}
+      />
     </Fragment>
   );
 }

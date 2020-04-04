@@ -8,50 +8,59 @@ import Nav from "./Nav";
 import Footer from "./Footer";
 
 const useAxios = makeUseAxios({
-  axios: axios.create({ baseURL: BASE_URL })
+  axios: axios.create({ baseURL: BASE_URL }),
 });
 
 export default function Layout({ children }) {
-  const [query, setQuery] = useState("cases");
+  const [query, setQuery] = useState("usa");
+  const [queries, setQueries] = useState(["usa"]);
 
   const [
     { data: dataAll, loading: loadingAll, error: errorAll },
-    refetchAll
+    refetchAll,
   ] = useAxios("/all");
 
   const [
     {
       data: dataHistoricalAll,
       loading: loadingHistoricalAll,
-      error: errorHistoricalAll
+      error: errorHistoricalAll,
     },
-    refetchHistoricalAll
+    refetchHistoricalAll,
   ] = useAxios("/v2/historical/all");
 
   const [
     { data: dataID, loading: loadingID, error: errorID },
-    refetchID
+    refetchID,
   ] = useAxios("/countries/indonesia");
 
   const [
     {
       data: dataHistoricalID,
       loading: loadingHistoricalID,
-      error: errorHistoricalID
+      error: errorHistoricalID,
     },
-    refetchHistoricalID
+    refetchHistoricalID,
   ] = useAxios("/v2/historical/indonesia");
 
   const [
     { data: dataCountries, loading: loadingCountries, error: errorCountries },
-    refetchCountries
+    refetchCountries,
   ] = useAxios("/countries?sort=cases");
 
   const [
     { data: dataCountry, loading: loadingCountry, error: errorCountry },
-    refetchCountry
+    refetchCountry,
   ] = useAxios(`/countries/${query}`);
 
+  const [
+    {
+      data: dataHistoricalCountry,
+      loading: loadingHistoricalCountry,
+      error: errorHistoricalCountry,
+    },
+    refetchHistoricalCountry,
+  ] = useAxios(`/v2/historical/${queries}`);
   return (
     <div className="bg-black-alt font-sans leading-normal tracking-normal">
       <CovidContext.Provider
@@ -76,12 +85,18 @@ export default function Layout({ children }) {
           loadingCountries,
           errorCountries,
           refetchCountries,
-          query,
-          setQuery,
           dataCountry,
           loadingCountry,
           errorCountry,
-          refetchCountry
+          refetchCountry,
+          dataHistoricalCountry,
+          loadingHistoricalCountry,
+          errorHistoricalCountry,
+          refetchHistoricalCountry,
+          query,
+          setQuery,
+          queries,
+          setQueries,
         }}
       >
         <Nav />
