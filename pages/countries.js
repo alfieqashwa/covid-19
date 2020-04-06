@@ -1,8 +1,9 @@
 import Layout from "../components/Layout";
-import Countries from "../components/Countries";
 
 export default () => (
   <Layout>
-    <Countries />
+    <div className="border border-gray-800 m-auto">
+      <h1 className="text-gray-800 m-auto">W.I.P</h1>
+    </div>
   </Layout>
 );

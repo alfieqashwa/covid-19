@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
+import CountUp from "react-countup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSyncAlt, faAllergies } from "@fortawesome/free-solid-svg-icons";
 import { CovidContext } from "../utils/Context";
-import { formatNum } from "../utils/formatNum";
 import { Loading, Error } from "./LoadingError";
 
 export default function ListCountries() {
@@ -12,7 +12,7 @@ export default function ListCountries() {
     dataCountries: data,
     loadingCountries: loading,
     errorCountries: error,
-    refetchCountries: refetch
+    refetchCountries: refetch,
   } = useContext(CovidContext);
 
   if (loading)
@@ -69,16 +69,21 @@ export default function ListCountries() {
                   {c.country}
                 </td>
                 <td className="text-yellow-600 w-1/5 text-xs sm:text-base text-right">
-                  {formatNum(c.cases)}
+                  <CountUp start={0} end={c.cases} delay={2.5} separator="," />
                 </td>
                 <td className="text-orange-500 w-1/5 text-xs sm:text-base text-right">
-                  {formatNum(c.critical)}
+                  <CountUp start={0} end={c.critical} delay={3} separator="," />
                 </td>
                 <td className="text-red-700 w-1/5 text-xs sm:text-base text-right">
-                  {formatNum(c.deaths)}
+                  <CountUp start={0} end={c.deaths} delay={3.5} separator="," />
                 </td>
                 <td className="text-green-600 w-1/5 text-xs text-right sm:text-base">
-                  {formatNum(c.recovered)}
+                  <CountUp
+                    start={0}
+                    end={c.recovered}
+                    delay={4}
+                    separator=","
+                  />
                 </td>
               </tr>
             ))}

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 const Footer = () => (
-  <footer className="bg-gray-900 border-t border-gray-400 rounded shadow mx-2 p-6">
+  <footer className="bg-gray-900 border-t border-gray-400 rounded shadow mx-2 p-2">
     <div className="container mx-auto flex py-8">
       <div className="w-full mx-auto flex flex-wrap">
         <div className="flex w-full">
@@ -61,7 +61,7 @@ const Footer = () => (
                     <FontAwesomeIcon icon={faHeart} />
                   </span>{" "}
                   by{" "}
-                  <span className="text-gray-600 font-bold">Alfie Qashwa</span>
+                  <span className="text-gray-600 font-bold">AlfieQashwa</span>
                 </a>
               </li>
             </ul>

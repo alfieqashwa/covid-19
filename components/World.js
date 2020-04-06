@@ -4,7 +4,6 @@ import { Globe, Cases, Deaths, Recovered, Active } from "./ReusableComponent";
 import TimelineWorld from "./TimelineWorld";
 
 import { CovidContext } from "../utils/Context";
-import { formatNum } from "../utils/formatNum";
 import LastUpdated from "./LastUpdated";
 import DoughnutChart from "./DoughnutChart";
 import ListCountries from "./ListCountries";
@@ -15,7 +14,7 @@ export default function World() {
     dataAll: data,
     loadingAll: loading,
     errorAll: error,
-    refetchAll: refetch
+    refetchAll: refetch,
   } = useContext(CovidContext);
 
   if (loading) return <Loading />;
@@ -28,10 +27,10 @@ export default function World() {
     <Fragment>
       <div className="flex flex-wrap">
         <Globe title="Total Data" content="The World" />
-        <Cases title="Total Kasus" content={formatNum(cases)} />
-        <Deaths title="Total Meninggal" content={formatNum(deaths)} />
-        <Recovered title="Total Pulih" content={formatNum(recovered)} />
-        <Active title="Terinfeksi" content={formatNum(active)} />
+        <Cases title="Total Kasus" content={cases} />
+        <Deaths title="Total Meninggal" content={deaths} />
+        <Recovered title="Total Pulih" content={recovered} />
+        <Active title="Terinfeksi" content={active} />
         {/* START LAST UPDATED */}
         <LastUpdated onClick={refetch} />
       </div>

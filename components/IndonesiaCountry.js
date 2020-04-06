@@ -13,7 +13,6 @@ import {
 } from "./ReusableComponent";
 
 import { CovidContext } from "../utils/Context";
-import { formatNum } from "../utils/formatNum";
 import { Loading, Error } from "./LoadingError";
 import LastUpdated from "./LastUpdated";
 import TimelineIndonesia from "./TimelineIndonesia";
@@ -64,12 +63,12 @@ export default function IndonesiaCountry() {
           </div>
         </div>
 
-        <Cases content={formatNum(cases)} />
-        <Deaths content={formatNum(deaths)} />
-        <Recovered content={formatNum(recovered)} />
-        <Active content={formatNum(active)} />
-        <TodayCases content={formatNum(todayCases)} />
-        <TodayDeaths content={formatNum(todayDeaths)} />
+        <Cases content={cases} />
+        <Deaths content={deaths} />
+        <Recovered content={recovered} />
+        <Active content={active} />
+        <TodayCases content={todayCases} />
+        <TodayDeaths content={todayDeaths} />
         <ReadOnline />
         {/* START Last Update */}
         <LastUpdated onClick={refetch} />

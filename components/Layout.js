@@ -13,7 +13,6 @@ const useAxios = makeUseAxios({
 
 export default function Layout({ children }) {
   const [query, setQuery] = useState("usa");
-  const [queries, setQueries] = useState(["usa"]);
 
   const [
     { data: dataAll, loading: loadingAll, error: errorAll },
@@ -60,7 +59,7 @@ export default function Layout({ children }) {
       error: errorHistoricalCountry,
     },
     refetchHistoricalCountry,
-  ] = useAxios(`/v2/historical/${queries}`);
+  ] = useAxios(`/v2/historical`);
   return (
     <div className="bg-black-alt font-sans leading-normal tracking-normal">
       <CovidContext.Provider
@@ -95,8 +94,6 @@ export default function Layout({ children }) {
           refetchHistoricalCountry,
           query,
           setQuery,
-          queries,
-          setQueries,
         }}
       >
         <Nav />
@@ -108,19 +105,6 @@ export default function Layout({ children }) {
           <Footer />
         </div>
       </CovidContext.Provider>
-      {/* <style jsx>
-        {`
-          .bg-black-alt {
-            background: #191919;
-          }
-          .text-black-alt {
-            color: #191919;
-          }
-          .border-black-alt {
-            border-color: #191919;
-          }
-        `}
-      </style> */}
     </div>
   );
 }
