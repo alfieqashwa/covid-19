@@ -7,8 +7,6 @@ import { Loading, Error } from "./LoadingError";
 
 export default function ListCountries() {
   const {
-    query,
-    setQuery,
     dataCountries: data,
     loadingCountries: loading,
     errorCountries: error,

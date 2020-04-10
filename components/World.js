@@ -1,6 +1,13 @@
 import React, { useContext, Fragment } from "react";
 
-import { Globe, Cases, Deaths, Recovered, Active } from "./ReusableComponent";
+import {
+  Globe,
+  Cases,
+  Deaths,
+  Recovered,
+  Active,
+  FatalityRate,
+} from "./ReusableComponent";
 import TimelineWorld from "./TimelineWorld";
 
 import { CovidContext } from "../utils/Context";
@@ -23,6 +30,8 @@ export default function World() {
   const { cases, deaths, recovered } = data;
   const active = cases - (deaths + recovered);
 
+  const CFR = (deaths / cases) * 100;
+
   return (
     <Fragment>
       <div className="flex flex-wrap">
@@ -31,6 +40,7 @@ export default function World() {
         <Deaths title="Total Meninggal" content={deaths} />
         <Recovered title="Total Pulih" content={recovered} />
         <Active title="Terinfeksi" content={active} />
+        <FatalityRate content={CFR} />
         {/* START LAST UPDATED */}
         <LastUpdated onClick={refetch} />
       </div>

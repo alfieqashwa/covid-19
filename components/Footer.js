@@ -56,7 +56,7 @@ const Footer = () => (
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  This non-profit site is made with{" "}
+                  This site is made with{" "}
                   <span className="text-red-600">
                     <FontAwesomeIcon icon={faHeart} />
                   </span>{" "}

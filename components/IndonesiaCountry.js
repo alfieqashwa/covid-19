@@ -9,6 +9,7 @@ import {
   TodayCases,
   TodayDeaths,
   // Critical,
+  FatalityRate,
   ReadOnline,
 } from "./ReusableComponent";
 
@@ -38,6 +39,8 @@ export default function IndonesiaCountry() {
     todayDeaths,
     // casesPerOneMillion
   } = data;
+
+  const CFR = (deaths / cases) * 100;
 
   return (
     <Fragment>
@@ -69,6 +72,7 @@ export default function IndonesiaCountry() {
         <Active content={active} />
         <TodayCases content={todayCases} />
         <TodayDeaths content={todayDeaths} />
+        <FatalityRate content={CFR} />
         <ReadOnline />
         {/* START Last Update */}
         <LastUpdated onClick={refetch} />
