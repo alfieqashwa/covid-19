@@ -1,6 +1,6 @@
 import React from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import { ColumnChart, AreaChart } from "react-chartkick";
+import { ColumnChart, AreaChart, PieChart } from "react-chartkick";
 import "chart.js";
 
 const Timeline = ({ onClick, cases, deaths, recovered, all }) => (
@@ -34,6 +34,8 @@ const Timeline = ({ onClick, cases, deaths, recovered, all }) => (
             colors={["#d69e2e"]}
             xtitle="Tanggal"
             ytitle="Jumlah"
+            thousands=","
+            download={{ background: "#1a202c" }}
           />
         </TabPanel>
         <TabPanel>
@@ -42,6 +44,8 @@ const Timeline = ({ onClick, cases, deaths, recovered, all }) => (
             colors={["#c53030"]}
             xtitle="Tanggal"
             ytitle="Jumlah"
+            thousands=","
+            download={{ background: "#1a202c" }}
           />
         </TabPanel>
         <TabPanel>
@@ -50,14 +54,18 @@ const Timeline = ({ onClick, cases, deaths, recovered, all }) => (
             colors={["#38a169"]}
             xtitle="Tanggal"
             ytitle="Jumlah"
+            thousands=","
+            download={{ background: "#1a202c" }}
           />
         </TabPanel>
         <TabPanel>
-          <ColumnChart
+          <AreaChart
             data={all}
             colors={["#d69e2e", "#c53030", "#38a169"]}
             xtitle="Tanggal"
             ytitle="Jumlah"
+            thousands=","
+            download={{ background: "#1a202c" }}
           />
         </TabPanel>
       </div>
