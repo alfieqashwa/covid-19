@@ -34,7 +34,7 @@ export default function ListCountries() {
       <div className="bg-gray-900 border border-gray-800 rounded shadow">
         {/* border-b border-gray-800 p-3 */}
         <table className="text-left w-full">
-          <thead className="bg-gray-900 border-gray-800 rounded shadow flex text-gray-600 w-full p-1 md:p-3">
+          <thead className="bg-gray-900 border-gray-800 rounded shadow flex text-gray-600 w-full p-1 md:py-4 md:px-8">
             <tr className="flex w-full">
               <th className="py-1 w-1/5 text-sm sm:text-base">
                 <button
@@ -58,7 +58,7 @@ export default function ListCountries() {
               </th>
             </tr>
           </thead>
-          <tbody className="bg-grey-900 flex w-full flex-col items-center justify-between overflow-y-scroll scrolling-touch p-1 md:p-3 h-72">
+          <tbody className="bg-grey-900 flex w-full flex-col items-center justify-between overflow-y-scroll scrolling-touch p-1 md:py-4 md:px-8 h-72">
             {data.map((c, i) => (
               <tr
                 className="flex w-full mb-10 px-1 border-b border-gray-800"
@@ -69,19 +69,19 @@ export default function ListCountries() {
                   {c.country}
                 </td>
                 <td className="text-yellow-600 w-1/5 text-xs sm:text-base text-right">
-                  <CountUp start={0} end={c.cases} delay={2.5} separator="," />
+                  <CountUp start={0} end={c.cases} delay={3.5} separator="," />
                 </td>
                 <td className="text-orange-500 w-1/5 text-xs sm:text-base text-right">
                   <CountUp start={0} end={c.critical} delay={3} separator="," />
                 </td>
                 <td className="text-red-700 w-1/5 text-xs sm:text-base text-right">
-                  <CountUp start={0} end={c.deaths} delay={3.5} separator="," />
+                  <CountUp start={0} end={c.deaths} delay={2.5} separator="," />
                 </td>
                 <td className="text-green-600 w-1/5 text-xs text-right sm:text-base">
                   <CountUp
                     start={0}
                     end={c.recovered}
-                    delay={4}
+                    delay={2}
                     separator=","
                   />
                 </td>

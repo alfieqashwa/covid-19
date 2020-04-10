@@ -49,7 +49,7 @@ export const Cases = ({ content }) => (
         <div className="flex-1 text-right md:text-center">
           <h5 className="font-bold uppercase text-gray-400">Total Kasus</h5>
           <h3 className="font-bold text-3xl text-yellow-600">
-            <CountUp start={0} end={content} delay={3} separator="," />
+            <CountUp start={0} end={content} delay={4} separator="," />
             <span className="text-green-500">
               <i className="fas fa-caret-up" />
             </span>
@@ -73,7 +73,7 @@ export const Deaths = ({ content }) => (
         <div className="flex-1 text-right md:text-center">
           <h5 className="font-bold uppercase text-gray-400">Total Meninggal</h5>
           <h3 className="font-bold text-3xl text-red-700">
-            <CountUp start={0} end={content} delay={2} separator="," />
+            <CountUp start={0} end={content} delay={3.5} separator="," />
             <span className="text-orange-500">
               <i className="fas fa-exchange-alt" />
             </span>
@@ -99,7 +99,7 @@ export const Recovered = ({ content }) => (
           <h5 className="font-bold uppercase text-gray-400">Total Pulih</h5>
 
           <h3 className="font-bold text-3xl text-green-600">
-            <CountUp start={0} end={content} delay={1} separator="," />
+            <CountUp start={0} end={content} delay={3} separator="," />
             <span className="text-yellow-600">
               <i className="fas fa-caret-up" />
             </span>
@@ -123,7 +123,7 @@ export const Active = ({ content }) => (
         <div className="flex-1 text-right md:text-center">
           <h5 className="font-bold uppercase text-gray-400">Terinfeksi</h5>
           <h3 className="font-bold text-3xl text-purple-600">
-            <CountUp start={0} end={content} delay={3} separator="," />
+            <CountUp start={0} end={content} delay={2.5} separator="," />
             <span className="text-green-500">
               <i className="fas fa-caret-up" />
             </span>
@@ -146,7 +146,7 @@ export const TodayCases = ({ content }) => (
         <div className="flex-1 text-right md:text-center">
           <h5 className="font-bold uppercase text-gray-400">Kasus Hari ini</h5>
           <h3 className="font-bold text-3xl text-yellow-700">
-            <CountUp start={0} end={content} delay={1.5} separator="," />
+            <CountUp start={0} end={content} delay={2} separator="," />
             <span className="text-green-500">
               <i className="fas fa-caret-up" />
             </span>
@@ -173,7 +173,7 @@ export const TodayDeaths = ({ content }) => (
           </h5>
 
           <h3 className="font-bold text-3xl text-red-800">
-            <CountUp start={0} end={content} delay={2} separator="," />
+            <CountUp start={0} end={content} delay={1.5} separator="," />
             <span className="text-orange-500">
               <i className="fas fa-exchange-alt" />
             </span>
@@ -196,7 +196,7 @@ export const Critical = ({ content }) => (
         <div className="flex-1 text-right md:text-center">
           <h5 className="font-bold uppercase text-gray-400">Kritis</h5>
           <h3 className="font-bold text-3xl text-pink-600">
-            <CountUp start={0} end={content} delay={2.5} separator="," />
+            <CountUp start={0} end={content} delay={1.5} separator="," />
             <span className="text-green-500">
               <i className="fas fa-caret-up" />
             </span>

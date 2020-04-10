@@ -12,7 +12,7 @@ export default function TimelineIndonesia() {
     dataHistoricalID: data,
     loadingHistoricalID: loading,
     errorHistoricalID: error,
-    refetchHistoriclaID: refetch,
+    refetchHistoricalID: refetch,
   } = useContext(CovidContext);
 
   if (loading)
