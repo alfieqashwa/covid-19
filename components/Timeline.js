@@ -27,38 +27,40 @@ const Timeline = ({ onClick, cases, deaths, recovered, all }) => (
           Load
         </button>
       </TabList>
-      <TabPanel>
-        <ColumnChart
-          data={cases}
-          colors={["#d69e2e"]}
-          xtitle="Tanggal"
-          ytitle="Jumlah"
-        />
-      </TabPanel>
-      <TabPanel>
-        <ColumnChart
-          data={deaths}
-          colors={["#c53030"]}
-          xtitle="Tanggal"
-          ytitle="Jumlah"
-        />
-      </TabPanel>
-      <TabPanel>
-        <ColumnChart
-          data={recovered}
-          colors={["#38a169"]}
-          xtitle="Tanggal"
-          ytitle="Jumlah"
-        />
-      </TabPanel>
-      <TabPanel>
-        <ColumnChart
-          data={all}
-          colors={["#d69e2e", "#c53030", "#38a169"]}
-          xtitle="Tanggal"
-          ytitle="Jumlah"
-        />
-      </TabPanel>
+      <div className="p-5">
+        <TabPanel>
+          <ColumnChart
+            data={cases}
+            colors={["#d69e2e"]}
+            xtitle="Tanggal"
+            ytitle="Jumlah"
+          />
+        </TabPanel>
+        <TabPanel>
+          <ColumnChart
+            data={deaths}
+            colors={["#c53030"]}
+            xtitle="Tanggal"
+            ytitle="Jumlah"
+          />
+        </TabPanel>
+        <TabPanel>
+          <ColumnChart
+            data={recovered}
+            colors={["#38a169"]}
+            xtitle="Tanggal"
+            ytitle="Jumlah"
+          />
+        </TabPanel>
+        <TabPanel>
+          <ColumnChart
+            data={all}
+            colors={["#d69e2e", "#c53030", "#38a169"]}
+            xtitle="Tanggal"
+            ytitle="Jumlah"
+          />
+        </TabPanel>
+      </div>
     </Tabs>
   </div>
 );

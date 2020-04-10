@@ -208,8 +208,8 @@ export const FatalityRate = ({ content }) => (
               decimals={2}
               decimal=","
             />
-            <span className="text-orange-600 ml-2">
-              <FontAwesomeIcon icon={faPercent} />
+            <span className="text-orange-600 ml-1">
+              <FontAwesomeIcon icon={faPercent} className="text-xl" />
             </span>
           </h3>
         </div>
