@@ -1,11 +1,11 @@
-import React, { Fragment, useContext } from "react";
+import React, { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSyncAlt, faAllergies } from "@fortawesome/free-solid-svg-icons";
 
 import { CovidContext } from "../utils/Context";
 
 import { Loading, Error } from "./LoadingError";
-import { CasesTimeline, DeathsTimeline, RecoveredTimeline } from "./Timeline";
+import Timeline from "./Timeline";
 
 export default function TimelineIndonesia() {
   const {
@@ -34,19 +34,16 @@ export default function TimelineIndonesia() {
     timeline: { cases, deaths, recovered },
   } = data;
   return (
-    <Fragment>
-      <CasesTimeline
-        onClick={refetch}
-        data={[{ name: "Kasus", data: cases }]}
-      />
-      <DeathsTimeline
-        onClick={refetch}
-        data={[{ name: "Meninggal", data: deaths }]}
-      />
-      <RecoveredTimeline
-        onClick={refetch}
-        data={[{ name: "Pulih", data: recovered }]}
-      />
-    </Fragment>
+    <Timeline
+      onClick={refetch}
+      cases={[{ name: "Kasus", data: cases }]}
+      deaths={[{ name: "Meninggal", data: deaths }]}
+      recovered={[{ name: "Pulih", data: recovered }]}
+      all={[
+        { name: "Kasus", data: cases },
+        { name: "Meninggal", data: deaths },
+        { name: "Pulih", data: recovered },
+      ]}
+    />
   );
 }

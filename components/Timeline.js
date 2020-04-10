@@ -1,72 +1,68 @@
 import React from "react";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { ColumnChart, AreaChart } from "react-chartkick";
 import "chart.js";
 
-export const CasesTimeline = ({ onClick, data }) => (
+const Timeline = ({ onClick, cases, deaths, recovered, all }) => (
   <div className="w-full p-3 my-6">
-    <div className="bg-gray-900 border border-gray-800 rounded shadow">
-      <div className="border-b border-gray-800 p-4">
-        <button
-          className="text-xs tracking-widest ms:text-base font-bold capitalize border border-yellow-700 rounded shadow text-yellow-600 px-2 py-1 hover:border-yellow-500 hover:text-yellow-500"
-          onClick={onClick}
-        >
-          Kasus
-        </button>
-      </div>
-      <div className="p-5">
+    <Tabs className="bg-gray-900 border border-gray-800 rounded shadow">
+      <TabList>
+        <div className="flex justify-left border-b border-gray-800 p-4">
+          <Tab className="text-xs tracking-widest ms:text-base font-bold capitalize border border-yellow-700 rounded shadow text-yellow-600 px-2 py-1 hover:border-yellow-500 hover:text-yellow-500">
+            Kasus
+          </Tab>
+          <Tab className="ml-3 text-xs tracking-widest ms:text-base font-bold capitalize border border-red-700 rounded shadow text-red-600 px-2 py-1 hover:border-red-500 hover:text-red-500">
+            meninggal
+          </Tab>
+          <Tab className="ml-3 text-xs tracking-widest ms:text-base font-bold capitalize border border-green-700 rounded shadow text-green-600 px-2 py-1 hover:border-green-600 hover:text-green-500">
+            pulih
+          </Tab>
+          <Tab className="ml-3 text-xs tracking-widest ms:text-base font-bold capitalize border border-indigo-700 rounded shadow text-indigo-600 px-2 py-1 hover:border-indigo-600 hover:text-indigo-500">
+            All
+          </Tab>
+          <button
+            type="button"
+            onClick={onClick}
+            className="ml-3 text-xs tracking-widest ms:text-base font-bold capitalize border border-teal-700 rounded shadow text-teal-600 px-2 py-1 hover:border-teal-600 hover:text-teal-500"
+          >
+            Refetch
+          </button>
+        </div>
+      </TabList>
+      <TabPanel className="p-5">
         <ColumnChart
-          data={data}
+          data={cases}
           colors={["#d69e2e"]}
           xtitle="Tanggal"
           ytitle="Jumlah"
         />
-      </div>
-    </div>
-  </div>
-);
-
-export const DeathsTimeline = ({ onClick, data }) => (
-  <div className="w-full p-3 mb-6">
-    <div className="bg-gray-900 border border-gray-800 rounded shadow">
-      <div className="border-b border-gray-800 p-4">
-        <button
-          className="text-xs tracking-widest ms:text-base font-bold capitalize border border-red-700 rounded shadow text-red-600 px-2 py-1 hover:border-red-500 hover:text-red-500"
-          onClick={onClick}
-        >
-          meninggal
-        </button>
-      </div>
-      <div className="p-5">
+      </TabPanel>
+      <TabPanel className="p-5">
         <ColumnChart
-          data={data}
+          data={deaths}
           colors={["#c53030"]}
           xtitle="Tanggal"
           ytitle="Jumlah"
         />
-      </div>
-    </div>
-  </div>
-);
-
-export const RecoveredTimeline = ({ onClick, data }) => (
-  <div className="w-full p-3">
-    <div className="bg-gray-900 border border-gray-800 rounded shadow">
-      <div className="border-b border-gray-800 p-4">
-        <button
-          className="text-xs tracking-widest ms:text-base font-bold capitalize border border-green-700 rounded shadow text-green-600 px-2 py-1 hover:border-green-600 hover:text-green-500"
-          onClick={onClick}
-        >
-          pulih
-        </button>
-      </div>
-      <div className="p-5">
+      </TabPanel>
+      <TabPanel className="p-5">
         <ColumnChart
-          data={data}
+          data={recovered}
           colors={["#38a169"]}
           xtitle="Tanggal"
           ytitle="Jumlah"
         />
-      </div>
-    </div>
+      </TabPanel>
+      <TabPanel className="p-5">
+        <ColumnChart
+          data={all}
+          colors={["#d69e2e", "#c53030", "#38a169"]}
+          xtitle="Tanggal"
+          ytitle="Jumlah"
+        />
+      </TabPanel>
+    </Tabs>
   </div>
 );
+
+export default Timeline;
