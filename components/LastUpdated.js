@@ -2,11 +2,8 @@ import React, { useContext } from "react";
 import moment from "moment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSyncAlt } from "@fortawesome/free-solid-svg-icons";
-import { CovidContext } from "../utils/Context";
 
-export default function LastUpdated({ onClick }) {
-  const { dataAll } = useContext(CovidContext);
-  const { updated } = dataAll;
+export default function LastUpdated({ updated = null, onClick }) {
   const lastUpdated = moment(updated).startOf("hour").fromNow();
 
   return (

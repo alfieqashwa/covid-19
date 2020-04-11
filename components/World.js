@@ -27,7 +27,7 @@ export default function World() {
   if (loading) return <Loading />;
   if (error) return <Error />;
 
-  const { cases, deaths, recovered } = data;
+  const { cases, deaths, recovered, updated } = data;
   const active = cases - (deaths + recovered);
 
   const CFR = (deaths / cases) * 100;
@@ -42,7 +42,7 @@ export default function World() {
         <Active title="Terinfeksi" content={active} />
         <FatalityRate content={CFR} />
         {/* START LAST UPDATED */}
-        <LastUpdated onClick={refetch} />
+        <LastUpdated updated={updated} onClick={refetch} />
       </div>
       <hr className="border-b-2 border-gray-600 my-8 mx-4" />
       <div className="flex flex-row flex-wrap flex-grow mt-2">

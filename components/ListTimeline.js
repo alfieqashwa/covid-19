@@ -1,16 +1,12 @@
 import React from "react";
-import useAxios from "axios-hooks";
-import { POMBER_URL } from "../utils/BaseUrl";
 import { Loading, Error } from "./LoadingError";
 
-export default function ListTimeline() {
-  const [{ data, loading, error }, refetch] = useAxios(POMBER_URL);
-
+export default function ListTimeline({ data, loading, error, refetch }) {
   if (loading) return <Loading />;
   if (error) return <Error />;
 
   const IND = data["Indonesia"];
-  IND.reverse();
+
   return (
     <div className="w-full p-3">
       <div className="bg-gray-900 border border-gray-800 rounded shadow">
@@ -37,7 +33,7 @@ export default function ListTimeline() {
             </tr>
           </thead>
           <tbody className="bg-grey-900 flex w-full flex-col items-center justify-between overflow-y-scroll scrolling-touch p-2 md:py-4 md:px-8 h-72">
-            {IND.map((c, i) => (
+            {IND.reverse().map((c, i) => (
               <tr
                 key={i}
                 className="flex w-full mb-10 px-1 border-b border-gray-800"
