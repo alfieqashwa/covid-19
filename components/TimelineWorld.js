@@ -27,6 +27,9 @@ export default function TimelineWorld() {
         { name: "Meninggal", data: deaths },
         { name: "Pulih", data: recovered },
       ]}
+      yellow={["#d69e2e"]}
+      red={["#c53030"]}
+      green={["#38a169"]}
     />
   );
 }

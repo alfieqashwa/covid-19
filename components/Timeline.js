@@ -5,7 +5,16 @@ import "chart.js";
 import CountUp from "react-countup";
 import { cfr } from "../utils/formatNum";
 
-export const GraphTimeline = ({ onClick, cases, deaths, recovered, all }) => (
+export const GraphTimeline = ({
+  onClick,
+  cases,
+  deaths,
+  recovered,
+  all,
+  yellow,
+  red,
+  green,
+}) => (
   <div className="w-full p-3 my-6">
     <Tabs className="bg-gray-900 border border-gray-800 rounded shadow">
       <TabList className="flex justify-around border-b border-gray-800 py-4 px-2">
@@ -33,7 +42,7 @@ export const GraphTimeline = ({ onClick, cases, deaths, recovered, all }) => (
         <TabPanel>
           <ColumnChart
             data={cases}
-            colors={["#d69e2e"]}
+            colors={yellow}
             xtitle="Tanggal"
             ytitle="Jumlah"
             thousands=","
@@ -42,7 +51,7 @@ export const GraphTimeline = ({ onClick, cases, deaths, recovered, all }) => (
         <TabPanel>
           <ColumnChart
             data={deaths}
-            colors={["#c53030"]}
+            colors={red}
             xtitle="Tanggal"
             ytitle="Jumlah"
             thousands=","
@@ -51,7 +60,7 @@ export const GraphTimeline = ({ onClick, cases, deaths, recovered, all }) => (
         <TabPanel>
           <ColumnChart
             data={recovered}
-            colors={["#38a169"]}
+            colors={green}
             xtitle="Tanggal"
             ytitle="Jumlah"
             thousands=","

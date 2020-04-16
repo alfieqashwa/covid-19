@@ -1,102 +1,51 @@
 import React, { Fragment, useContext } from "react";
-import Select from "react-select";
-import chroma from "chroma-js";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSyncAlt, faAllergies } from "@fortawesome/free-solid-svg-icons";
-
 import { CovidContext } from "../utils/Context";
 
 import { Loading, Error } from "./LoadingError";
-import { CasesTimeline, DeathsTimeline, RecoveredTimeline } from "./Timeline";
-import { colourOptions, countriesOptions } from "../utils/data";
+import { GraphTimeline } from "./Timeline";
 
-const colourStyles = {
-  control: styles => ({ ...styles, backgroundColor: "white" }),
-  option: (styles, { data, isDisabled, isFocused, isSelected }) => {
-    const color = chroma(data.color);
-    return {
-      ...styles,
-      backgroundColor: isDisabled
-        ? null
-        : isSelected
-        ? data.color
-        : isFocused
-        ? color.alpha(0.1).css()
-        : null,
-      color: isDisabled
-        ? "#ccc"
-        : isSelected
-        ? chroma.contrast(color, "white") > 2
-          ? "white"
-          : "black"
-        : data.color,
-      cursor: isDisabled ? "not-allowed" : "default",
-
-      ":active": {
-        ...styles[":active"],
-        backgroundColor:
-          !isDisabled && (isSelected ? data.color : color.alpha(0.3).css()),
-      },
-    };
-  },
-  multiValue: (styles, { data }) => {
-    const color = chroma(data.color);
-    return {
-      ...styles,
-      backgroundColor: color.alpha(0.1).css(),
-    };
-  },
-  multiValueLabel: (styles, { data }) => ({
-    ...styles,
-    color: data.color,
-  }),
-  multiValueRemove: (styles, { data }) => ({
-    ...styles,
-    color: data.color,
-    ":hover": {
-      backgroundColor: data.color,
-      color: "white",
-    },
-  }),
-};
-
-export default function TimelineCountry() {
+export default () => {
   const {
-    query,
-    setQuery,
     dataHistoricalCountry: data,
     loadingHistoricalCountry: loading,
     errorHistoricalCountry: error,
-    refetchHistoriclaCountry: refetch,
+    refetchHistoricalCountry: refetch,
+    country,
+    setCountry,
   } = useContext(CovidContext);
 
   if (loading) return <Loading />;
+
   if (error) return <Error />;
 
   const {
     // standardizedCountryName,
-    timeline: { cases, deaths, recovered },
+    // timeline: { cases, deaths, recovered },
   } = data;
+
+  const countries = data.map(c => c.country);
+  const cases = data.map(c => c.timeline.cases);
+  const deaths = data.map(c => c.timeline.deaths);
+  const recovered = data.map(c => c.timeline.recovered);
   return (
     <Fragment>
-      <Select
-        closeMenuOnSelect={false}
-        defaultValue={[countriesOptions[0]]}
-        options={[countriesOptions]}
-        styles={colourStyles}
-      />
-      <CasesTimeline
-        onClick={refetch}
-        data={[{ name: "Kasus", data: cases }]}
-      />
-      <DeathsTimeline
-        onClick={refetch}
-        data={[{ name: "Meninggal", data: deaths }]}
-      />
-      <RecoveredTimeline
-        onClick={refetch}
-        data={[{ name: "Pulih", data: recovered }]}
+      <GraphTimeline
+        cases={[
+          { name: countries[0], data: cases[0] },
+          { name: countries[1], data: cases[1] },
+        ]}
+        deaths={[
+          { name: countries[0], data: deaths[0] },
+          { name: countries[1], data: deaths[1] },
+        ]}
+        recovered={[
+          { name: countries[0], data: recovered[0] },
+          { name: countries[1], data: recovered[1] },
+        ]}
+        yellow={["#d69e2e", "#dd6b20"]}
+        red={["#e53e3e", "#f56565"]}
+        green={["#48bb78", "#2f855a"]}
       />
     </Fragment>
   );
-}
+};
