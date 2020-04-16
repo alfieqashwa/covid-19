@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { makeUseAxios } from "axios-hooks";
+import useAxios, { makeUseAxios } from "axios-hooks";
 
-import { BASE_URL } from "../utils/BaseUrl";
+import { BASE_URL, POMBER_URL } from "../utils/BaseUrl";
 import { CovidContext } from "../utils/Context";
 import Nav from "./Nav";
 import Footer from "./Footer";
 
-const useAxios = makeUseAxios({
+const useAxiosNovel = makeUseAxios({
   axios: axios.create({ baseURL: BASE_URL }),
 });
 
@@ -17,7 +17,7 @@ export default function Layout({ children }) {
   const [
     { data: dataAll, loading: loadingAll, error: errorAll },
     refetchAll,
-  ] = useAxios("/all");
+  ] = useAxiosNovel("/all");
 
   const [
     {
@@ -26,12 +26,12 @@ export default function Layout({ children }) {
       error: errorHistoricalAll,
     },
     refetchHistoricalAll,
-  ] = useAxios("/v2/historical/all");
+  ] = useAxiosNovel("/v2/historical/all");
 
   const [
     { data: dataID, loading: loadingID, error: errorID },
     refetchID,
-  ] = useAxios("/countries/indonesia");
+  ] = useAxiosNovel("/countries/indonesia");
 
   const [
     {
@@ -40,17 +40,17 @@ export default function Layout({ children }) {
       error: errorHistoricalID,
     },
     refetchHistoricalID,
-  ] = useAxios("/v2/historical/indonesia");
+  ] = useAxiosNovel("/v2/historical/indonesia");
 
   const [
     { data: dataCountries, loading: loadingCountries, error: errorCountries },
     refetchCountries,
-  ] = useAxios("/countries?sort=cases");
+  ] = useAxiosNovel("/countries?sort=cases");
 
   const [
     { data: dataCountry, loading: loadingCountry, error: errorCountry },
     refetchCountry,
-  ] = useAxios(`/countries/${query}`);
+  ] = useAxiosNovel(`/countries/${query}`);
 
   const [
     {
@@ -59,7 +59,12 @@ export default function Layout({ children }) {
       error: errorHistoricalCountry,
     },
     refetchHistoricalCountry,
-  ] = useAxios(`/v2/historical`);
+  ] = useAxiosNovel(`/v2/historical`);
+
+  const [
+    { data: dataPomber, loading: loadingPomber, error: errorPomber },
+    refetchPomber,
+  ] = useAxios(POMBER_URL);
   return (
     <div className="bg-black-alt font-sans leading-normal tracking-normal">
       <CovidContext.Provider
@@ -94,6 +99,10 @@ export default function Layout({ children }) {
           refetchHistoricalCountry,
           query,
           setQuery,
+          dataPomber,
+          loadingPomber,
+          errorPomber,
+          refetchPomber,
         }}
       >
         <Nav />

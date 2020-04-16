@@ -4,22 +4,21 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSyncAlt, faAllergies } from "@fortawesome/free-solid-svg-icons";
 
 import { CovidContext } from "../utils/Context";
-import { POMBER_URL } from "../utils/BaseUrl";
 
 import { Loading, Error } from "./LoadingError";
 import Timeline from "./Timeline";
 import ListTimeline from "./ListTimeline";
 
 export default function TimelineIndonesia() {
-  const [
-    { data: dataPomber, loading: loadingPomber, error: errorPomber },
-    refetchPomber,
-  ] = useAxios(POMBER_URL);
   const {
     dataHistoricalID: data,
     loadingHistoricalID: loading,
     errorHistoricalID: error,
     refetchHistoricalID: refetch,
+    dataPomber,
+    loadingPomber,
+    errorPomber,
+    refetchPomber,
   } = useContext(CovidContext);
 
   if (loading)
