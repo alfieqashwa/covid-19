@@ -3,7 +3,7 @@ import moment from "moment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSyncAlt } from "@fortawesome/free-solid-svg-icons";
 
-export default function LastUpdated({ updated = null, onClick }) {
+export default function LastUpdated({ updated, onClick }) {
   const lastUpdated = moment(updated).startOf("hour").fromNow();
 
   return (

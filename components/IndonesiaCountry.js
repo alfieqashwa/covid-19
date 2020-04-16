@@ -24,6 +24,7 @@ export default function IndonesiaCountry() {
     loadingID: loading,
     errorID: error,
     refetchID: refetch,
+    dataAll,
   } = useContext(CovidContext);
 
   if (loading) return <Loading />;
@@ -39,6 +40,8 @@ export default function IndonesiaCountry() {
     todayDeaths,
     // casesPerOneMillion
   } = data;
+
+  const { updated } = dataAll;
 
   const CFR = (deaths / cases) * 100;
 
@@ -75,7 +78,7 @@ export default function IndonesiaCountry() {
         <FatalityRate content={CFR} />
         <ReadOnline />
         {/* START Last Update */}
-        <LastUpdated onClick={refetch} />
+        <LastUpdated updated={updated} onClick={refetch} />
       </div>
       <hr className="border-b-2 border-gray-600 mt-8 mx-4" />
       <div className="flex flex-row flex-wrap flex-grow mt-2">
