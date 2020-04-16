@@ -13,16 +13,6 @@ const Footer = () => (
               <li>
                 <a
                   className="inline-block text-gray-600 no-underline hover:text-gray-100 hover:text-underline py-1"
-                  href="https://pomber.github.io/covid19/timeseries.json"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span className="text-indigo-600 font-bold">POMBER API</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  className="inline-block text-gray-600 no-underline hover:text-gray-100 hover:text-underline py-1"
                   href="https://github.com/NovelCOVID/API"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -30,6 +20,16 @@ const Footer = () => (
                   <span className="text-indigo-600 font-bold">
                     NovelCOVID API
                   </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  className="inline-block text-gray-600 no-underline hover:text-gray-100 hover:text-underline py-1"
+                  href="https://pomber.github.io/covid19/timeseries.json"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span className="text-indigo-600 font-bold">Pomber API</span>
                 </a>
               </li>
               <li>
