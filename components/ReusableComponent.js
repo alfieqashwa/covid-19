@@ -14,6 +14,7 @@ import {
   faArrowLeft,
   faSyncAlt,
   faPercent,
+  faVial,
 } from "@fortawesome/free-solid-svg-icons";
 
 // Globe
@@ -181,6 +182,27 @@ export const Critical = ({ content }) => (
           <h5 className="font-bold uppercase text-gray-400">Kritis</h5>
           <h3 className="font-bold text-3xl text-pink-600">
             <CountUp start={0} end={content} delay={1.5} separator="," />
+          </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+// Test
+export const Tested = ({ content }) => (
+  <div className="w-full md:w-1/2 xl:w-1/3 p-3">
+    <div className="bg-gray-900 border border-gray-800 rounded shadow p-2">
+      <div className="flex flex-row items-center">
+        <div className="flex-shrink pr-4">
+          <div className="rounded px-4 py-3 bg-teal-600">
+            <FontAwesomeIcon icon={faVial} size="2x" inverse />
+          </div>
+        </div>
+        <div className="flex-1 text-right md:text-center">
+          <h5 className="font-bold uppercase text-gray-400">Populasi Test</h5>
+          <h3 className="font-bold text-3xl text-teal-600">
+            <CountUp start={0} end={content} delay={1} separator="," />
           </h3>
         </div>
       </div>

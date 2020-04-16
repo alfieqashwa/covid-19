@@ -10,6 +10,7 @@ import {
   TodayCases,
   TodayDeaths,
   // Critical,
+  Tested,
   LastUpdated,
   FatalityRate,
   ReadOnline,
@@ -26,10 +27,12 @@ export default function IndonesiaCountry() {
     errorID: error,
     refetchID: refetch,
     dataAll,
+    loadingAll,
+    errorAll,
   } = useContext(CovidContext);
 
-  if (loading) return <Loading />;
-  if (error) return <Error />;
+  if (loading || loadingAll) return <Loading />;
+  if (error || errorAll) return <Error />;
 
   const {
     country,
@@ -39,6 +42,7 @@ export default function IndonesiaCountry() {
     active,
     todayCases,
     todayDeaths,
+    tests,
     // casesPerOneMillion
   } = data;
 
@@ -74,9 +78,10 @@ export default function IndonesiaCountry() {
         <Deaths content={deaths} />
         <Recovered content={recovered} />
         <Active content={active} />
+        <Tested content={tests} />
+        <FatalityRate content={CFR} />
         <TodayCases content={todayCases} />
         <TodayDeaths content={todayDeaths} />
-        <FatalityRate content={CFR} />
         <ReadOnline />
         {/* START Last Update */}
         <LastUpdated updated={updated} onClick={refetch} />
