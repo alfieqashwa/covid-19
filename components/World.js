@@ -1,4 +1,5 @@
 import React, { useContext, Fragment } from "react";
+import { cfr } from "../utils/formatNum";
 
 import {
   Globe,
@@ -30,7 +31,7 @@ export default function World() {
   const { cases, deaths, recovered, updated } = data;
   const active = cases - (deaths + recovered);
 
-  const CFR = (deaths / cases) * 100;
+  const CFR = cfr(deaths, cases);
 
   return (
     <Fragment>

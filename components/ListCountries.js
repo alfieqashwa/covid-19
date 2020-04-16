@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import CountUp from "react-countup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSyncAlt, faAllergies } from "@fortawesome/free-solid-svg-icons";
+import { cfr } from "../utils/formatNum";
 import { CovidContext } from "../utils/Context";
 import { Loading, Error } from "./LoadingError";
 
@@ -45,14 +46,14 @@ export default function ListCountries() {
               <th className="text-yellow-600 py-2 w-1/5 xl:px-1 text-sm sm:text-base text-right">
                 Kasus
               </th>
-              <th className="text-orange-500 py-2 w-1/5 xl:px-2  text-sm sm:text-base text-right">
-                Kritis
-              </th>
               <th className="text-red-700 py-2 w-1/5 xl:px-3 text-sm sm:text-base text-right">
                 Wafat
               </th>
-              <th className="text-green-600 py-2 px-1 xl:pr-4 w-1/5  text-sm sm:text-base text-right">
+              <th className="text-green-500 py-2 w-1/5 xl:px-2 text-sm sm:text-base text-right">
                 Pulih
+              </th>
+              <th className="text-orange-600 py-2 px-1 xl:pr-4 w-1/5  text-sm sm:text-base text-right">
+                CFR
               </th>
             </tr>
           </thead>
@@ -69,9 +70,6 @@ export default function ListCountries() {
                 <td className="text-yellow-600 w-1/5 text-xs sm:text-base text-right">
                   <CountUp start={0} end={c.cases} delay={3.5} separator="," />
                 </td>
-                <td className="text-orange-500 w-1/5 text-xs sm:text-base text-right">
-                  <CountUp start={0} end={c.critical} delay={3} separator="," />
-                </td>
                 <td className="text-red-700 w-1/5 text-xs sm:text-base text-right">
                   <CountUp start={0} end={c.deaths} delay={2.5} separator="," />
                 </td>
@@ -82,6 +80,16 @@ export default function ListCountries() {
                     delay={2}
                     separator=","
                   />
+                </td>
+                <td className="text-orange-500 w-1/5 text-xs sm:text-base text-right">
+                  <CountUp
+                    start={0}
+                    end={cfr(c.deaths, c.cases)}
+                    delay={3}
+                    decimals={2}
+                    decimal=","
+                  />
+                  <span className="ml-1">%</span>
                 </td>
               </tr>
             ))}
