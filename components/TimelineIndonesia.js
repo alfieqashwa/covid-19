@@ -1,13 +1,8 @@
 import React, { Fragment, useContext } from "react";
-import useAxios from "axios-hooks";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSyncAlt, faAllergies } from "@fortawesome/free-solid-svg-icons";
-
 import { CovidContext } from "../utils/Context";
 
 import { Loading, Error } from "./LoadingError";
-import Timeline from "./Timeline";
-import ListTimeline from "./ListTimeline";
+import { GraphTimeline, ListTimeline } from "./Timeline";
 
 export default function TimelineIndonesia() {
   const {
@@ -21,27 +16,20 @@ export default function TimelineIndonesia() {
     refetchPomber,
   } = useContext(CovidContext);
 
-  if (loading)
-    return (
-      <Loading text="Loading...">
-        <FontAwesomeIcon icon={faSyncAlt} size="6x" inverse spin />
-      </Loading>
-    );
+  if (loading || loadingPomber) return <Loading />;
 
-  if (error)
-    return (
-      <Error text="Error !!">
-        <FontAwesomeIcon icon={faAllergies} size="6x" inverse spin />
-      </Error>
-    );
+  if (error || errorPomber) return <Error />;
 
   const {
     // standardizedCountryName,
     timeline: { cases, deaths, recovered },
   } = data;
+
+  const indonesia = dataPomber["Indonesia"];
+
   return (
     <Fragment>
-      <Timeline
+      <GraphTimeline
         onClick={refetch}
         cases={[{ name: "Kasus", data: cases }]}
         deaths={[{ name: "Meninggal", data: deaths }]}
@@ -52,12 +40,7 @@ export default function TimelineIndonesia() {
           { name: "Pulih", data: recovered },
         ]}
       />
-      <ListTimeline
-        data={dataPomber}
-        loading={loadingPomber}
-        error={errorPomber}
-        refetch={refetchPomber}
-      />
+      <ListTimeline country={indonesia} onClick={refetchPomber} />
     </Fragment>
   );
 }
