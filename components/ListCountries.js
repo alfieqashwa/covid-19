@@ -1,7 +1,5 @@
 import React, { useContext } from "react";
 import CountUp from "react-countup";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSyncAlt, faAllergies } from "@fortawesome/free-solid-svg-icons";
 import { cfr } from "../utils/formatNum";
 import { CovidContext } from "../utils/Context";
 import { Loading, Error } from "./LoadingError";
@@ -14,19 +12,8 @@ export default function ListCountries() {
     refetchCountries: refetch,
   } = useContext(CovidContext);
 
-  if (loading)
-    return (
-      <Loading>
-        <FontAwesomeIcon icon={faSyncAlt} size="6x" inverse spin />
-      </Loading>
-    );
-
-  if (error)
-    return (
-      <Error text="Error !!">
-        <FontAwesomeIcon icon={faAllergies} size="6x" inverse spin />
-      </Error>
-    );
+  if (loading) return <Loading />;
+  if (error) return <Error />;
 
   return (
     <div className="w-full mt-6 p-3">
@@ -57,7 +44,7 @@ export default function ListCountries() {
               </th>
             </tr>
           </thead>
-          <tbody className="bg-grey-900 flex w-full flex-col items-center justify-between overflow-y-scroll scrolling-touch p-1 md:py-4 md:px-8 h-72">
+          <tbody className="bg-gray-900 flex w-full flex-col items-center justify-between overflow-y-scroll scrolling-touch p-1 md:py-4 md:px-8 h-72">
             {data.map((c, i) => (
               <tr
                 className="flex w-full mb-10 px-1 border-b border-gray-800"

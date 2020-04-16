@@ -70,19 +70,8 @@ export default function TimelineCountry() {
     refetchHistoriclaCountry: refetch,
   } = useContext(CovidContext);
 
-  if (loading)
-    return (
-      <Loading text="Loading...">
-        <FontAwesomeIcon icon={faSyncAlt} size="6x" inverse spin />
-      </Loading>
-    );
-
-  if (error)
-    return (
-      <Error text="Error !!">
-        <FontAwesomeIcon icon={faAllergies} size="6x" inverse spin />
-      </Error>
-    );
+  if (loading) return <Loading />;
+  if (error) return <Error />;
 
   const {
     // standardizedCountryName,

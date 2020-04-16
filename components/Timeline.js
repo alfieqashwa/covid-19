@@ -4,7 +4,6 @@ import { ColumnChart, AreaChart, PieChart } from "react-chartkick";
 import "chart.js";
 import CountUp from "react-countup";
 import { cfr } from "../utils/formatNum";
-import { Loading, Error } from "./LoadingError";
 
 export const GraphTimeline = ({ onClick, cases, deaths, recovered, all }) => (
   <div className="w-full p-3 my-6">
