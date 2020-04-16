@@ -9,13 +9,13 @@ import {
   TodayCases,
   TodayDeaths,
   // Critical,
+  LastUpdated,
   FatalityRate,
   ReadOnline,
 } from "./ReusableComponent";
 
 import { CovidContext } from "../utils/Context";
 import { Loading, Error } from "./LoadingError";
-import LastUpdated from "./LastUpdated";
 import TimelineIndonesia from "./TimelineIndonesia";
 
 export default function IndonesiaCountry() {

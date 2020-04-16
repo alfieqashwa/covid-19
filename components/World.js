@@ -6,12 +6,12 @@ import {
   Deaths,
   Recovered,
   Active,
+  LastUpdated,
   FatalityRate,
 } from "./ReusableComponent";
 import TimelineWorld from "./TimelineWorld";
 
 import { CovidContext } from "../utils/Context";
-import LastUpdated from "./LastUpdated";
 import DoughnutChart from "./DoughnutChart";
 import ListCountries from "./ListCountries";
 import { Loading, Error } from "./LoadingError";
