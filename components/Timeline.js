@@ -38,7 +38,6 @@ export const GraphTimeline = ({ onClick, cases, deaths, recovered, all }) => (
             xtitle="Tanggal"
             ytitle="Jumlah"
             thousands=","
-            download={{ background: "#1a202c" }}
           />
         </TabPanel>
         <TabPanel>
@@ -48,7 +47,6 @@ export const GraphTimeline = ({ onClick, cases, deaths, recovered, all }) => (
             xtitle="Tanggal"
             ytitle="Jumlah"
             thousands=","
-            download={{ background: "#1a202c" }}
           />
         </TabPanel>
         <TabPanel>
@@ -58,11 +56,10 @@ export const GraphTimeline = ({ onClick, cases, deaths, recovered, all }) => (
             xtitle="Tanggal"
             ytitle="Jumlah"
             thousands=","
-            download={{ background: "#1a202c" }}
           />
         </TabPanel>
         <TabPanel>
-          <AreaChart
+          <ColumnChart
             data={all}
             colors={["#d69e2e", "#c53030", "#38a169"]}
             xtitle="Tanggal"
