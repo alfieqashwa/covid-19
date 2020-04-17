@@ -18,7 +18,7 @@ export default function Layout({ children }) {
   const [
     { data: dataAll, loading: loadingAll, error: errorAll },
     refetchAll,
-  ] = useAxiosNovel("/all");
+  ] = useAxiosNovel("/v2/all");
 
   const [
     {
@@ -32,7 +32,7 @@ export default function Layout({ children }) {
   const [
     { data: dataID, loading: loadingID, error: errorID },
     refetchID,
-  ] = useAxiosNovel("/countries/indonesia");
+  ] = useAxiosNovel("/v2/countries/indonesia");
 
   const [
     {
@@ -46,12 +46,12 @@ export default function Layout({ children }) {
   const [
     { data: dataCountries, loading: loadingCountries, error: errorCountries },
     refetchCountries,
-  ] = useAxiosNovel("/countries?sort=cases");
+  ] = useAxiosNovel("/v2/countries?sort=cases");
 
   const [
     { data: dataCountry, loading: loadingCountry, error: errorCountry },
     refetchCountry,
-  ] = useAxiosNovel(`/countries/${query}`);
+  ] = useAxiosNovel(`/v2/countries/${query}`);
 
   const [
     {
