@@ -58,6 +58,18 @@ const Footer = () => (
                   Science and Engineering (CSSE)
                 </a>
               </li>
+              <li>
+                <a
+                  className="inline-block text-gray-600 no-underline hover:text-gray-100 hover:text-underline py-1"
+                  href="https://github.com/nytimes/covid-19-data"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span className="text-gray-600 font-bold">
+                    New York Times
+                  </span>
+                </a>
+              </li>
               <br />
               <li>
                 <a
