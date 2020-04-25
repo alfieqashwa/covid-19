@@ -13,7 +13,8 @@ const useAxiosNovel = makeUseAxios({
 
 export default function Layout({ children }) {
   const [query, setQuery] = useState("usa");
-  const [country, setCountry] = useState("indonesia, malaysia");
+  // const [country, setCountry] = useState("indonesia, malaysia");
+  const [country, setCountry] = useState("");
 
   const [
     { data: dataAll, loading: loadingAll, error: errorAll },
