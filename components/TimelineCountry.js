@@ -44,9 +44,9 @@ export default () => {
           { name: options[0], data: recovered[0] },
           { name: options[1], data: recovered[1] },
         ]}
-        yellow={["#d69e2e", "#dd6b20"]}
-        red={["#e53e3e", "#f56565"]}
-        green={["#48bb78", "#2f855a"]}
+        yellow={["#ecc94b", "#dd6b20"]}
+        red={["#fc8181", "#c53030"]}
+        green={["#68d391", "#276749"]}
         onClick={refetch}
       />
     </Fragment>

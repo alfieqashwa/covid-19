@@ -73,7 +73,6 @@ export const GraphTimeline = ({
             xtitle="Tanggal"
             ytitle="Jumlah"
             thousands=","
-            download={{ background: "#1a202c" }}
           />
         </TabPanel>
       </div>
