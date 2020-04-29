@@ -26,7 +26,6 @@ export default function TimelineIndonesia() {
   } = data;
 
   const indonesia = dataPomber["Indonesia"];
-
   return (
     <Fragment>
       <GraphTimeline
