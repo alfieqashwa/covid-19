@@ -44,9 +44,25 @@ export default () => {
           { name: options[0], data: recovered[0] },
           { name: options[1], data: recovered[1] },
         ]}
+        all={[
+          { name: `[K]. ${options[0].slice(0, 3)}`, data: cases[0] },
+          { name: `[K]. ${options[1].slice(0, 3)}`, data: cases[1] },
+          { name: `[M]. ${options[0].slice(0, 3)}`, data: deaths[0] },
+          { name: `[M]. ${options[1].slice(0, 3)}`, data: deaths[1] },
+          { name: `[P]. ${options[0].slice(0, 3)}`, data: recovered[0] },
+          { name: `[P]. ${options[1].slice(0, 3)}`, data: recovered[1] },
+        ]}
         yellow={["#ecc94b", "#dd6b20"]}
         red={["#fc8181", "#c53030"]}
         green={["#68d391", "#276749"]}
+        allColors={[
+          "#ecc94b",
+          "#dd6b20",
+          "#fc8181",
+          "#c53030",
+          "#68d391",
+          "#276749",
+        ]}
         onClick={refetch}
       />
     </Fragment>

@@ -30,6 +30,7 @@ export default function TimelineWorld() {
       yellow={["#d69e2e"]}
       red={["#c53030"]}
       green={["#38a169"]}
+      allColors={["#d69e2e", "#c53030", "#38a169"]}
     />
   );
 }

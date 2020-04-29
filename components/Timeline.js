@@ -14,6 +14,7 @@ export const GraphTimeline = ({
   yellow,
   red,
   green,
+  allColors,
 }) => (
   <div className="w-full p-3 my-6">
     <Tabs className="bg-gray-900 border border-gray-800 rounded shadow">
@@ -69,7 +70,7 @@ export const GraphTimeline = ({
         <TabPanel>
           <ColumnChart
             data={all}
-            colors={["#d69e2e", "#c53030", "#38a169"]}
+            colors={allColors}
             xtitle="Tanggal"
             ytitle="Jumlah"
             thousands=","
@@ -91,7 +92,7 @@ export const ListTimeline = ({ country, onClick }) => (
                 onClick={onClick}
                 className="bg-gray-900 border-2 border-gray-800 rounded shadow text-indigo-700 font-bold px-2 py-1 hover:border-gray-600 hover:text-indigo-500"
               >
-                Tanggal
+                Reload
               </button>
             </th>
             <th className="text-yellow-600 py-2 w-1/5 xl:px-1 text-sm sm:text-base text-right">
@@ -114,7 +115,7 @@ export const ListTimeline = ({ country, onClick }) => (
               key={i}
               className="flex w-full mb-10 px-1 border-b border-gray-800"
             >
-              <td className="flex text-gray-600 w-1/5 pb-12 text-xs sm:text-base font-bold truncate">
+              <td className="flex text-gray-600 w-1/5 pb-12 text-xs sm:text-base font-bold">
                 {c.date}
               </td>
               <td className="text-yellow-600 w-1/5 text-xs sm:text-base text-right">
