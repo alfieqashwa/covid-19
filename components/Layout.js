@@ -12,7 +12,6 @@ const useAxiosNovel = makeUseAxios({
 });
 
 export default function Layout({ children }) {
-  const [query, setQuery] = useState("usa");
   // const [country, setCountry] = useState("indonesia, malaysia");
   const [options, setOptions] = useState(["Malaysia", "Indonesia"]);
 
@@ -52,7 +51,7 @@ export default function Layout({ children }) {
   const [
     { data: dataCountry, loading: loadingCountry, error: errorCountry },
     refetchCountry,
-  ] = useAxiosNovel(`/v2/countries/${query}`);
+  ] = useAxiosNovel(`/v2/countries/${options}`);
 
   const [
     {
@@ -101,8 +100,6 @@ export default function Layout({ children }) {
           refetchHistoricalCountry,
           options,
           setOptions,
-          query,
-          setQuery,
           dataPomber,
           loadingPomber,
           errorPomber,
