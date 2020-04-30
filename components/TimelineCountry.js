@@ -68,7 +68,7 @@ export default () => {
         onChange={onChange}
         className="mx-3 mt-8"
       />
-      <div className="w-full p-3 mt-2">
+      <div className="w-full p-3 mt-8">
         <div className="flex justify-between bg-gray-900 border border-gray-800 rounded shadow">
           <img
             src={flag[0]}
