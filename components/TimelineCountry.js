@@ -66,8 +66,22 @@ export default () => {
         options={countriesOptions}
         isMulti
         onChange={onChange}
-        className="mx-3"
+        className="mx-3 mt-8"
       />
+      <div className="w-full p-3 mt-2">
+        <div className="flex justify-between bg-gray-900 border border-gray-800 rounded shadow">
+          <img
+            src={flag[0]}
+            alt={country[0]}
+            className="w-1/3 mx-auto py-5 rounded shadow"
+          />
+          <img
+            src={flag[1]}
+            alt={country[1]}
+            className="w-1/3 mx-auto py-5 rounded shadow"
+          />
+        </div>
+      </div>
       <GraphTimeline
         cases={[
           { name: options[0], data: casesChart[0] },
