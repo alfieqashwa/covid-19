@@ -343,7 +343,7 @@ const FatalityRate = ({ content }) => (
 // Refactoring Flags
 const FlagList = ({ src0, src1, alt0, alt1 }) => (
   <div className="w-full p-3 mt-8">
-    <div className="flex justify-between bg-gray-900 border border-gray-800 rounded shadow">
+    <div className="flex justify-between bg-gray-900 border border-gray-800 rounded shadow py-5">
       <Flag src={src0} alt={alt0} />
       <Flag src={src1} alt={alt1} />
     </div>
@@ -352,7 +352,7 @@ const FlagList = ({ src0, src1, alt0, alt1 }) => (
 
 const Flag = ({ src, alt }) => (
   <img
-    className="w-1/3 h-32 sm:h-40 md:h-56 mx-auto py-5 rounded-lg shadow"
+    className="w-1/3 h-32 sm:h-40 md:h-56 mx-auto rounded-md shadow"
     src={src}
     alt={alt}
   />
