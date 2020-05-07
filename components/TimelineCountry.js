@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useContext } from "react";
+import React, { Fragment, useContext } from "react";
 import CountUp from "react-countup";
 import Select from "react-select";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -30,7 +30,7 @@ export default () => {
     dataCountry,
     loadingCountry,
     errorCountry,
-    refetchCountry,
+    // refetchCountry,
   } = useContext(CovidContext);
 
   if (loadingHistory || loadingCountry) return <Loading />;
@@ -54,7 +54,7 @@ export default () => {
   const todayDeaths = dataCountry.map(c => c.todayDeaths);
   const tests = dataCountry.map(c => c.tests);
 
-  console.log(JSON.stringify(country, null, 2));
+  // console.log(JSON.stringify(country, null, 2));
   return (
     <Fragment>
       <Select
@@ -84,12 +84,12 @@ export default () => {
           { name: options[1], data: recoveredChart[1] },
         ]}
         all={[
-          { name: `[K]. ${options[0].slice(0, 3)}`, data: casesChart[0] },
-          { name: `[K]. ${options[1].slice(0, 3)}`, data: casesChart[1] },
-          { name: `[M]. ${options[0].slice(0, 3)}`, data: deathsChart[0] },
-          { name: `[M]. ${options[1].slice(0, 3)}`, data: deathsChart[1] },
-          { name: `[P]. ${options[0].slice(0, 3)}`, data: recoveredChart[0] },
-          { name: `[P]. ${options[1].slice(0, 3)}`, data: recoveredChart[1] },
+          { name: `[K] ${options[0].slice(0, 5)}`, data: casesChart[0] },
+          { name: `[K] ${options[1].slice(0, 5)}`, data: casesChart[1] },
+          { name: `[M] ${options[0].slice(0, 5)}`, data: deathsChart[0] },
+          { name: `[M] ${options[1].slice(0, 5)}`, data: deathsChart[1] },
+          { name: `[P] ${options[0].slice(0, 5)}`, data: recoveredChart[0] },
+          { name: `[P] ${options[1].slice(0, 5)}`, data: recoveredChart[1] },
         ]}
         yellow={["#ecc94b", "#dd6b20"]}
         red={["#fc8181", "#c53030"]}
