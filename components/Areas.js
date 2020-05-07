@@ -1,4 +1,3 @@
-import React from "react";
 import { AreaClosed, Line, Bar } from "@vx/shape";
 import { appleStock } from "@vx/mock-data";
 import { curveMonotoneX } from "@vx/curve";
@@ -41,7 +40,7 @@ class Area extends React.Component {
     showTooltip({
       tooltipData: d,
       tooltipLeft: x,
-      tooltipTop: yScale(d.close)
+      tooltipTop: yScale(d.close),
     });
   }
   render() {
@@ -53,7 +52,7 @@ class Area extends React.Component {
       tooltipData,
       tooltipTop,
       tooltipLeft,
-      events
+      events,
     } = this.props;
     if (width < 10) return null;
 
@@ -64,12 +63,12 @@ class Area extends React.Component {
     // scales
     const xScale = scaleTime({
       range: [0, xMax],
-      domain: extent(stock, xStock)
+      domain: extent(stock, xStock),
     });
     const yScale = scaleLinear({
       range: [yMax, 0],
       domain: [0, max(stock, yStock) + yMax / 3],
-      nice: true
+      nice: true,
     });
 
     return (
@@ -127,7 +126,7 @@ class Area extends React.Component {
                 xStock,
                 xScale,
                 yScale,
-                data: stock
+                data: stock,
               })
             }
             onTouchMove={event =>
@@ -136,7 +135,7 @@ class Area extends React.Component {
                 xStock,
                 xScale,
                 yScale,
-                data: stock
+                data: stock,
               })
             }
             onMouseMove={event =>
@@ -145,7 +144,7 @@ class Area extends React.Component {
                 xStock,
                 xScale,
                 yScale,
-                data: stock
+                data: stock,
               })
             }
             onMouseLeave={event => hideTooltip()}
@@ -190,7 +189,7 @@ class Area extends React.Component {
               left={tooltipLeft + 12}
               style={{
                 backgroundColor: "rgba(92, 119, 235, 1.000)",
-                color: "white"
+                color: "white",
               }}
             >
               {`$${yStock(tooltipData)}`}
@@ -199,7 +198,7 @@ class Area extends React.Component {
               top={yMax - 14}
               left={tooltipLeft}
               style={{
-                transform: "translateX(-50%)"
+                transform: "translateX(-50%)",
               }}
             >
               {formatDate(xStock(tooltipData))}

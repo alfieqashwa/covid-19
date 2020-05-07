@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from "react";
+import { useContext } from "react";
 import CountUp from "react-countup";
 import Select from "react-select";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -56,7 +56,7 @@ export default () => {
 
   // console.log(JSON.stringify(country, null, 2));
   return (
-    <Fragment>
+    <div className="border border-gray-800 m-auto">
       <Select
         options={countriesOptions}
         placeholder="Pilih dua negara..."
@@ -133,7 +133,7 @@ export default () => {
         <TodayDeaths content={todayDeaths[1]} />
         <hr className="border-b-2 border-gray-600 mt-8 mx-4" />
       </div>
-    </Fragment>
+    </div>
   );
 };
 

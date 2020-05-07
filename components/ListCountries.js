@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import CountUp from "react-countup";
 import { cfr } from "../utils/formatNum";
 import { CovidContext } from "../utils/Context";

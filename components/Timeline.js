@@ -1,4 +1,3 @@
-import React from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { ColumnChart, AreaChart, PieChart } from "react-chartkick";
 import "chart.js";

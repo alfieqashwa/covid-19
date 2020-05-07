@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from "react";
+import { Fragment, useContext } from "react";
 import { CovidContext } from "../utils/Context";
 
 import { Loading, Error } from "./LoadingError";

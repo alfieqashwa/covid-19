@@ -1,7 +1,6 @@
 /*
     source => https://gist.github.com/remy/0dde38897d6d660f0b63867c2344fb59
 */
-import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 

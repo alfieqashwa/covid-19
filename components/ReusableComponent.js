@@ -1,4 +1,3 @@
-import React from "react";
 import moment from "moment";
 import CountUp from "react-countup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

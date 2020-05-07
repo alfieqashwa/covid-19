@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { Loading, Error } from "./LoadingError";
 
 import { CovidContext } from "../utils/Context";
