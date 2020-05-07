@@ -4,16 +4,11 @@ import Select from "react-select";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faGlobeAsia,
-  faGlobeAmericas,
   faHospitalAlt,
   faProcedures,
   faHeartbeat,
   faSkullCrossbones,
   faAllergies,
-  faAmbulance,
-  faBook,
-  faArrowLeft,
-  faSyncAlt,
   faPercent,
   faVial,
 } from "@fortawesome/free-solid-svg-icons";
@@ -64,6 +59,7 @@ export default () => {
     <Fragment>
       <Select
         options={countriesOptions}
+        placeholder="Pilih dua negara..."
         isMulti
         onChange={onChange}
         className="mx-3 mt-8"
