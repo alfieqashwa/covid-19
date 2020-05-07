@@ -68,20 +68,12 @@ export default () => {
         onChange={onChange}
         className="mx-3 mt-8"
       />
-      <div className="w-full p-3 mt-8">
-        <div className="flex justify-between bg-gray-900 border border-gray-800 rounded shadow">
-          <img
-            src={flag[0]}
-            alt={country[0]}
-            className="w-1/3 mx-auto py-5 rounded shadow"
-          />
-          <img
-            src={flag[1]}
-            alt={country[1]}
-            className="w-1/3 mx-auto py-5 rounded shadow"
-          />
-        </div>
-      </div>
+      <FlagList
+        src0={flag[0]}
+        alt0={country[0]}
+        src1={flag[1]}
+        alt1={country[1]}
+      />
       <GraphTimeline
         cases={[
           { name: options[0], data: casesChart[0] },
@@ -350,4 +342,22 @@ const FatalityRate = ({ content }) => (
       </div>
     </div>
   </div>
+);
+
+// Refactoring Flags
+const FlagList = ({ src0, src1, alt0, alt1 }) => (
+  <div className="w-full p-3 mt-8">
+    <div className="flex justify-between bg-gray-900 border border-gray-800 rounded shadow">
+      <Flag src={src0} alt={alt0} />
+      <Flag src={src1} alt={alt1} />
+    </div>
+  </div>
+);
+
+const Flag = ({ src, alt }) => (
+  <img
+    className="w-1/3 h-32 sm:h-40 md:h-56 mx-auto py-5 rounded-lg shadow"
+    src={src}
+    alt={alt}
+  />
 );
