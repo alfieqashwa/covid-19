@@ -2,13 +2,17 @@ import { useState } from "react";
 import axios from "axios";
 import useAxios, { makeUseAxios } from "axios-hooks";
 
-import { BASE_URL, POMBER_URL } from "../utils/BaseUrl";
+import { BASE_URL, POMBER_URL, INDONESIA_URL } from "../utils/BaseUrl";
 import { CovidContext } from "../utils/Context";
 import Nav from "./Nav";
 import Footer from "./Footer";
 
 const useAxiosNovel = makeUseAxios({
   axios: axios.create({ baseURL: BASE_URL }),
+});
+
+const useAxiosIndonesia = makeUseAxios({
+  axios: axios.create({ baseURL: INDONESIA_URL }),
 });
 
 export default function Layout({ children }) {
@@ -66,6 +70,13 @@ export default function Layout({ children }) {
     { data: dataPomber, loading: loadingPomber, error: errorPomber },
     refetchPomber,
   ] = useAxios(POMBER_URL);
+
+  // Province's List in Indonesia
+  const [
+    { data: dataProvinsi, loading: loadingProvinsi, error: errorProvinsi },
+    refetchProvinsi,
+  ] = useAxiosIndonesia("/api/provinsi");
+
   return (
     <div className="bg-black-alt font-sans leading-normal tracking-normal">
       <CovidContext.Provider
@@ -104,6 +115,10 @@ export default function Layout({ children }) {
           loadingPomber,
           errorPomber,
           refetchPomber,
+          dataProvinsi,
+          loadingProvinsi,
+          errorProvinsi,
+          refetchProvinsi,
         }}
       >
         <Nav />
