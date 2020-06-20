@@ -2,7 +2,11 @@ import { Fragment, useContext } from "react";
 import { CovidContext } from "../utils/Context";
 
 import { Loading, Error } from "./LoadingError";
-import { GraphTimeline, ListTimeline } from "./Timeline";
+import {
+  GraphTimeline,
+  ListTimeline,
+  IndonesiaProvinceListTimeline,
+} from "./Timeline";
 
 export default function TimelineIndonesia() {
   const {
@@ -14,11 +18,15 @@ export default function TimelineIndonesia() {
     loadingPomber,
     errorPomber,
     refetchPomber,
+    dataProvinsi,
+    loadingProvinsi,
+    errorProvinsi,
+    refetchProvinsi,
   } = useContext(CovidContext);
 
-  if (loading || loadingPomber) return <Loading />;
+  if (loading || loadingPomber || loadingProvinsi) return <Loading />;
 
-  if (error || errorPomber) return <Error />;
+  if (error || errorPomber || errorProvinsi) return <Error />;
 
   const {
     // standardizedCountryName,
@@ -44,6 +52,10 @@ export default function TimelineIndonesia() {
         allColors={["#d69e2e", "#c53030", "#38a169"]}
       />
       <ListTimeline country={indonesia} onClick={refetchPomber} />
+      <IndonesiaProvinceListTimeline
+        province={dataProvinsi}
+        onClick={refetchProvinsi}
+      />
     </Fragment>
   );
 }
