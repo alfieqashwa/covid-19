@@ -1,10 +1,10 @@
 import Layout from "../components/Layout";
-import JobStatus from "../components/JobStatus";
+import { JobStatus } from "../components/Kominfo";
 
-const Indonesia = () => (
+const JobstatusGDS = () => (
   <Layout>
     <JobStatus />
   </Layout>
 );
 
-export default Indonesia;
+export default JobstatusGDS;
