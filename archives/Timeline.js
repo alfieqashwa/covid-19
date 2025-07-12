@@ -11,7 +11,7 @@ import { BASE_URL } from "../utils/BaseUrl";
 
 const Timeline = ({ router }) => {
   const [{ data, loading, error }, refetch] = useAxios(
-    `${BASE_URL}/v2/historical/indonesia`
+    `${BASE_URL}/countries/indonesia`
   );
 
   if (loading)
@@ -29,11 +29,11 @@ const Timeline = ({ router }) => {
     );
 
   const {
-    timeline: { cases, deaths }
+    timeline: { cases, deaths },
   } = data;
 
   const {
-    query: { tab }
+    query: { tab },
   } = router;
 
   const isTabOne = tab === "1" || tab == null;
@@ -78,8 +78,10 @@ function NavGraph({ isTabOne, isTabTwo }) {
         <li selected={isTabOne} className="-mb-px mr-1">
           <Link href={{ query: { tab: "1" } }}>
             <a
-              className={` inline-block  ${router.query.tab === "1" &&
-                "border-l border-t border-r rounded-t border-gray-600 text-yellow-600"} py-2 px-4 font-bold capitalize text-gray-600 `}
+              className={` inline-block  ${
+                router.query.tab === "1" &&
+                "border-l border-t border-r rounded-t border-gray-600 text-yellow-600"
+              } py-2 px-4 font-bold capitalize text-gray-600 `}
             >
               Kasus
             </a>
@@ -88,8 +90,10 @@ function NavGraph({ isTabOne, isTabTwo }) {
         <li selected={isTabTwo} className="mr-1">
           <Link href={{ query: { tab: "2" } }}>
             <a
-              className={` inline-block ${router.query.tab === "2" &&
-                "border-l border-t border-r rounded-t border-gray-600 text-red-600"} py-2 px-4 font-bold capitalize text-gray-600 `}
+              className={` inline-block ${
+                router.query.tab === "2" &&
+                "border-l border-t border-r rounded-t border-gray-600 text-red-600"
+              } py-2 px-4 font-bold capitalize text-gray-600 `}
             >
               Meninggal
             </a>

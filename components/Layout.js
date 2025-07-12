@@ -19,10 +19,8 @@ export default function Layout({ children }) {
   // const [country, setCountry] = useState("indonesia, malaysia");
   const [options, setOptions] = useState(["Malaysia", "Indonesia"]);
 
-  const [
-    { data: dataAll, loading: loadingAll, error: errorAll },
-    refetchAll,
-  ] = useAxiosNovel("/v2/all");
+  const [{ data: dataAll, loading: loadingAll, error: errorAll }, refetchAll] =
+    useAxiosNovel("/v2/all");
 
   const [
     {
@@ -33,10 +31,8 @@ export default function Layout({ children }) {
     refetchHistoricalAll,
   ] = useAxiosNovel("/v2/historical/all");
 
-  const [
-    { data: dataID, loading: loadingID, error: errorID },
-    refetchID,
-  ] = useAxiosNovel("/v2/countries/indonesia");
+  const [{ data: dataID, loading: loadingID, error: errorID }, refetchID] =
+    useAxiosNovel("/v2/countries/indonesia");
 
   const [
     {
